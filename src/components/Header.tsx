@@ -8,49 +8,49 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  font-size: 2rem;
+  padding: 2rem;
+  background-image: url('/headerBg.jpg');
+  font-family: 'Berkshire Swash', serif;
+`;
 
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+const StyledLogo = styled.h1`
+  font-size: 2rem;
 `;
 
 const StyledNav = styled.nav`
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
 `;
 
 const StyledNavLinks = styled(NavLink)`
   display: flex;
-  gap: 0.2rem;
   text-decoration: none;
   color: white;
+  font-size: 1.5rem;
 
   &:hover {
-    color: orange;
+    color: #f93943;
+    transform: scale(120%);
   }
 
   &.active {
-    color: orange;
+    color: #f93943;
   }
 `;
 
 export default function Header() {
   return (
     <StyledHeader>
-      <h1>Hummer Mushrooms</h1>
+      <StyledLogo>Hummer Mushrooms</StyledLogo>
       <StyledNav>
         <StyledNavLinks to='/'>
           <HiHome />
-          <span>Strona Główna</span>
+          <span>Główna</span>
         </StyledNavLinks>
         <StyledNavLinks to='/products'>
           <GiMushroomGills />
-          <span>Produkty</span>
+          <span>Grzyby</span>
         </StyledNavLinks>
         <StyledNavLinks to='/info'>
           <HiInformationCircle />
