@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 import styled from 'styled-components';
-import { HiHome, HiInformationCircle, HiUser } from 'react-icons/hi2';
+import { HiBars4, HiHome, HiInformationCircle, HiUser } from 'react-icons/hi2';
 import { GiMushroomGills } from 'react-icons/gi';
 
 const StyledHeader = styled.header`
@@ -21,6 +21,18 @@ const StyledNav = styled.nav`
   display: flex;
   gap: 1rem;
   align-items: center;
+
+  @media (max-width: 830px) {
+    display: none;
+  }
+`;
+
+const StyledBurgerIcon = styled.div`
+  font-size: 1.5rem;
+
+  @media (min-width: 830px) {
+    display: none;
+  }
 `;
 
 const StyledNavLinks = styled(NavLink)`
@@ -43,6 +55,9 @@ export default function Header() {
   return (
     <StyledHeader>
       <StyledLogo>Hummer Mushrooms</StyledLogo>
+      <StyledBurgerIcon>
+        <HiBars4 />
+      </StyledBurgerIcon>
       <StyledNav>
         <StyledNavLinks to='/'>
           <HiHome />

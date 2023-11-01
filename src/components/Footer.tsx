@@ -1,24 +1,24 @@
 import styled from 'styled-components';
 
-export default function Footer() {
-  const StyledFooter = styled.footer`
-    background-color: #222222;
-    color: #000;
-    font-family: 'Berkshire Swash', serif;
-    padding: 0.5rem;
-    text-align: center;
+const StyledFooter = styled.footer`
+  background-color: #222;
+  color: #000;
+  font-family: 'Berkshire Swash', serif;
+  padding: 0.5rem;
+  text-align: center;
 
-    & a {
-      color: #ff0069;
-      text-decoration: none;
-      font-size: 1.3rem;
+  & a {
+    color: #ff0069;
+    text-decoration: none;
+    font-size: 1.3rem;
 
-      &:hover {
-        color: #000;
-      }
+    &:hover {
+      color: #000;
     }
-  `;
+  }
+`;
 
+export default function Footer() {
   return (
     <StyledFooter>
       <h1>
