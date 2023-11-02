@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import styled from 'styled-components';
+import { MobileMenuProvider } from './contexts/useMobileMenu';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -15,10 +16,12 @@ const StyledWrapper = styled.div`
 
 export default function App() {
   return (
-    <StyledWrapper>
-      <Header />
-      <Outlet />
-      <Footer />
-    </StyledWrapper>
+    <MobileMenuProvider>
+      <StyledWrapper>
+        <Header />
+        <Outlet />
+        <Footer />
+      </StyledWrapper>
+    </MobileMenuProvider>
   );
 }

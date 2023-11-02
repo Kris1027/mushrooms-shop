@@ -7,9 +7,10 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
   background-image: url('/headerBg.jpg');
   font-family: 'Berkshire Swash', serif;
+  height: 70px;
+  padding: 0 2rem;
 `;
 
 export default function Header() {
