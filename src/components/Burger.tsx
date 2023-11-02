@@ -1,7 +1,6 @@
-import { type FunctionComponent } from 'react';
+import { useState, type FunctionComponent } from 'react';
 import { HiBars4, HiXMark } from 'react-icons/hi2';
 import { styled } from 'styled-components';
-import { useMobileMenu } from '../contexts/useMobileMenu';
 import Navigation from './Navigation';
 
 const StyledBurgerIcon = styled.div`
@@ -20,7 +19,11 @@ const StyledBurgerNav = styled.div`
 `;
 
 const Burger: FunctionComponent = () => {
-  const { isOpen, handleOpenMobileMenu } = useMobileMenu();
+  const [isOpen, setIsOpen] = useState(false);
+
+  function handleOpenMobileMenu() {
+    setIsOpen((prevState) => !prevState);
+  }
 
   return (
     <>
