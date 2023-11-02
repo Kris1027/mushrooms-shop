@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { HiBars4 } from 'react-icons/hi2';
+
 import Menu from './Menu';
-import { Logo } from './Logo';
+import Logo from './Logo';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -12,21 +12,10 @@ const StyledHeader = styled.header`
   font-family: 'Berkshire Swash', serif;
 `;
 
-const StyledBurgerIcon = styled.div`
-  font-size: 1.5rem;
-
-  @media (min-width: 830px) {
-    display: none;
-  }
-`;
-
 export default function Header() {
   return (
     <StyledHeader>
       <Logo />
-      <StyledBurgerIcon>
-        <HiBars4 />
-      </StyledBurgerIcon>
       <Menu />
     </StyledHeader>
   );
