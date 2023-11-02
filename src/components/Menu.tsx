@@ -1,11 +1,12 @@
+import { type FunctionComponent, useEffect, useState } from 'react';
+import { type IconType } from 'react-icons';
 import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-import { type IconType } from 'react-icons';
-
-import { HiBars4, HiHome, HiInformationCircle, HiUser } from 'react-icons/hi2';
+import { HiHome, HiInformationCircle, HiUser } from 'react-icons/hi2';
 import { GiMushroomGills } from 'react-icons/gi';
-import { FunctionComponent, useEffect, useState } from 'react';
+
+import Burger from './Burger';
 
 const StyledNav = styled.nav`
   display: flex;
@@ -28,10 +29,6 @@ const StyledNavLinks = styled(NavLink)`
   &.active {
     color: #f93943;
   }
-`;
-
-const StyledBurgerIcon = styled.div`
-  font-size: 3rem;
 `;
 
 interface NavLinkItemsProps {
@@ -76,9 +73,7 @@ const Menu: FunctionComponent = () => {
   return (
     <StyledNav>
       {isMobile ? (
-        <StyledBurgerIcon>
-          <HiBars4 />
-        </StyledBurgerIcon>
+        <Burger />
       ) : (
         navLinks.map((link) => <NavLinkItems key={link.to} {...link} />)
       )}
