@@ -16,10 +16,11 @@ const StyledBurgerNav = styled.div`
   flex-direction: column;
   gap: 2rem;
   padding: 2rem;
+  transition: transform 2s ease-in-out;
 `;
 
 const Burger: FunctionComponent = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   function handleOpenMobileMenu() {
     setIsOpen((prevState) => !prevState);
