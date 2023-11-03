@@ -8,7 +8,6 @@ const StyledNav = styled.nav`
   display: flex;
   gap: 1rem;
   align-items: center;
-  }
 `;
 
 const Menu: FunctionComponent = () => {

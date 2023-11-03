@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 const moveAnimation = keyframes`
   0% { transform: translateX(0); }
-  50% { transform: translateX(-20px); }
+  50% { transform: translateX(-100px); }
   100% { transform: translateX(0); }
 `;
 
@@ -10,9 +10,7 @@ const StyledSVG = styled.svg`
   position: absolute;
   top: 0;
   left: 0;
-  width: 200%;
-  height: 200%;
-  animation: ${moveAnimation} 1s ease-in-out infinite both;
+  animation: ${moveAnimation} 5s linear infinite both;
 `;
 
 const StyledSVG2 = styled(StyledSVG)`
@@ -25,9 +23,9 @@ const StyledSVG3 = styled(StyledSVG)`
 
 const StyledWrapper = styled.div`
   position: relative;
+  height: 100%;
   width: 100%;
-  height: 300px;
-  overflow: hidden;
+  transform: scale(1.3);
 `;
 
 export default function FooterWaves() {

@@ -7,9 +7,9 @@ const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  min-height: 800px;
   max-width: 1280px;
-  min-width: 410px;
+  min-width: 400px;
   margin: 0 auto;
 `;
 
