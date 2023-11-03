@@ -31,7 +31,23 @@ const StyledInfoWrapper = styled.div`
 `;
 
 const StyledIconsWrapper = styled.div`
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  font-size: 2rem;
+`;
+
+const StyledCopyrights = styled.div`
+  font-size: 0.7rem;
+
+  a {
+    text-decoration: none;
+    color: #fff700;
+
+    &:hover {
+      color: #ff69e8;
+    }
+  }
 `;
 
 export default function Footer() {
@@ -43,10 +59,15 @@ export default function Footer() {
           <AiFillLinkedin />
           <AiFillInstagram />
         </StyledIconsWrapper>
-        <div>
-          &copy; 2023 All rights reserved. Designed & crafted with love by
-          Kris1027
-        </div>
+        <StyledCopyrights>
+          &copy; 2023 All rights reserved. Designed & crafted with love by{' '}
+          <a
+            href='https://www.linkedin.com/in/krzysztof-obarzanek-6b8803254/'
+            target='blank'
+          >
+            Kris1027
+          </a>
+        </StyledCopyrights>
       </StyledInfoWrapper>
       <FooterWaves />
     </StyledFooter>
