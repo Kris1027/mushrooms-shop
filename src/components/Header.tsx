@@ -4,6 +4,7 @@ import Menu from './Menu';
 import Logo from './Logo';
 
 const StyledHeader = styled.header`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;

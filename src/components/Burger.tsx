@@ -9,14 +9,17 @@ const StyledBurgerIcon = styled.div`
 
 const StyledBurgerNav = styled.div`
   position: absolute;
-  top: 70px;
+  top: 0;
   left: 0;
-  background: #000;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2rem;
-  padding: 2rem;
+  width: 100vh;
+  height: 100vh;
+  background-image: url('/headerBg.jpg');
   transition: transform 2s ease-in-out;
+  border-radius: 10px;
 `;
 
 const Burger: FunctionComponent = () => {
@@ -33,7 +36,7 @@ const Burger: FunctionComponent = () => {
       </StyledBurgerIcon>
       {isOpen && (
         <StyledBurgerNav>
-          <Navigation />
+          <Navigation onCloseNav={handleOpenMobileMenu} />
         </StyledBurgerNav>
       )}
     </>
