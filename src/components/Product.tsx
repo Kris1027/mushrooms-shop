@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { fakeDataProps } from '../components/data/fakeData';
+import { fakeDataProps } from './data/fakeData';
+import { Link } from 'react-router-dom';
 
 interface ProductProps {
   prod: fakeDataProps;
@@ -9,12 +10,12 @@ const StyledItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 200px;
-  height: 300px;
+  height: 250px;
   cursor: pointer;
   padding: 0.5rem;
   transition: 0.2s linear;
 
-  background: rgba(255, 255, 255, 0.27);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
@@ -51,6 +52,7 @@ const StyledButton = styled.button`
   border: none;
   width: 80%;
   transition: 0.1s linear;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.07);
@@ -65,15 +67,25 @@ const StyledButton = styled.button`
   }
 `;
 
+const StyledImg = styled.img`
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
 export default function Product({ prod }: ProductProps) {
   return (
-    <StyledItemWrapper key={prod.id}>
-      <img src={prod.photos[0]} alt={`${prod.name} picture`} />
-      <StyledTitleWrapper>
-        <StyledTitle>{prod.name}</StyledTitle>
-        <StyledPrice>{prod.price} zł</StyledPrice>
-      </StyledTitleWrapper>
-      <StyledButton>Dodaj do koszyka</StyledButton>
-    </StyledItemWrapper>
+    <Link to='/fullproduct'>
+      <StyledItemWrapper key={prod.id}>
+        <StyledImg src={prod.photos[0]} alt={`${prod.name} picture`} />
+        <StyledTitleWrapper>
+          <StyledTitle>{prod.name}</StyledTitle>
+          <StyledPrice>{prod.price} zł</StyledPrice>
+        </StyledTitleWrapper>
+        <StyledButton>Dodaj do koszyka</StyledButton>
+      </StyledItemWrapper>
+    </Link>
   );
 }

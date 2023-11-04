@@ -9,14 +9,10 @@ const StyledNavLinks = styled(NavLink)`
   display: flex;
   gap: 0.4rem;
   text-decoration: none;
-  color: #ffdd00;
+  color: white;
   font-size: 1.5rem;
   font-weight: 700;
   padding: 0.5rem;
-
-  &:hover {
-    transform: scale(120%);
-  }
 
   &.active {
     transform: scale(120%);

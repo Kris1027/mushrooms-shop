@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 import { fakeData } from '../components/data/fakeData';
-import Product from './Product';
+import Product from '../components/Product';
 
 const StyledProductsWrapper = styled.div`
   display: flex;
-  gap: 1.5rem;
+  gap: 3rem;
   flex-wrap: wrap;
   justify-content: center;
   padding: 2rem;
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 export default function Products() {

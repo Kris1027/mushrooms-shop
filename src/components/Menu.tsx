@@ -6,7 +6,7 @@ import Navigation from './Navigation';
 
 const StyledNav = styled.nav`
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
 `;
 
