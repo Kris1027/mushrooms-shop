@@ -12,6 +12,7 @@ const StyledItemWrapper = styled.div`
   height: 300px;
   cursor: pointer;
   padding: 0.5rem;
+  transition: 0.2s linear;
 
   background: rgba(255, 255, 255, 0.27);
   border-radius: 16px;
@@ -21,7 +22,7 @@ const StyledItemWrapper = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.3);
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.04);
   }
 `;
 
@@ -41,11 +42,27 @@ const StyledPrice = styled.p`
 `;
 
 const StyledButton = styled.button`
+  margin: 0 auto;
   margin-top: 1rem;
   padding: 0.5rem;
   border-radius: 16px;
   background-color: #ffdd00;
   color: #f93943;
+  border: none;
+  width: 80%;
+  transition: 0.1s linear;
+
+  &:hover {
+    transform: scale(1.07);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    transform: scale(1);
+  }
 `;
 
 export default function Product({ prod }: ProductProps) {

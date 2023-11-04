@@ -7,7 +7,7 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: url('/headerBg.jpg');
+  background: #f93943;
   height: 70px;
   padding: 0 2rem;
 `;

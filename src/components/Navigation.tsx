@@ -7,20 +7,18 @@ import { styled } from 'styled-components';
 
 const StyledNavLinks = styled(NavLink)`
   display: flex;
-  gap: 0.3rem;
+  gap: 0.4rem;
   text-decoration: none;
-  color: white;
+  color: #ffdd00;
   font-size: 1.5rem;
   font-weight: 700;
   padding: 0.5rem;
 
   &:hover {
-    color: #f93943;
     transform: scale(120%);
   }
 
   &.active {
-    color: #f93943;
     transform: scale(120%);
     border-bottom: 3px solid;
     background-color: black;
