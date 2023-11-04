@@ -4,12 +4,10 @@ import Menu from './Menu';
 import Logo from './Logo';
 
 const StyledHeader = styled.header`
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-image: url('/headerBg.jpg');
-  font-family: 'Berkshire Swash', serif;
   height: 70px;
   padding: 0 2rem;
 `;

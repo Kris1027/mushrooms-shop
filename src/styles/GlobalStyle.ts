@@ -37,6 +37,7 @@ body {
 	line-height: 1;
 	background-color: black;
 	color: white;
+	font-family: 'Montserrat', sans-serif;
 }
 ol, ul {
 	list-style: none;

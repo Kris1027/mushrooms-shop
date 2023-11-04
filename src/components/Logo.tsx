@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 
 const StyledLogo = styled.h1`
   font-size: 2rem;
+  font-family: 'Berkshire Swash', serif;
 
   @media (max-width: 840px) {
     font-size: 1.8rem;
