@@ -12,6 +12,7 @@ const StyledNavLinks = styled(NavLink)`
   color: white;
   font-size: 1.5rem;
   font-weight: 700;
+  padding: 0.5rem;
 
   &:hover {
     color: #f93943;
@@ -20,6 +21,7 @@ const StyledNavLinks = styled(NavLink)`
 
   &.active {
     color: #f93943;
+    transform: scale(120%);
     border-bottom: 3px solid;
     background-color: black;
 
