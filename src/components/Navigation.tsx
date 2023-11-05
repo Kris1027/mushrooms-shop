@@ -26,12 +26,6 @@ const StyledNavLinks = styled(NavLink)`
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
   }
-
-  @media (max-width: 840px) {
-    font-size: 2rem;
-    margin-top: 1rem;
-    padding: 1rem;
-  }
 `;
 
 interface NavLinkItemsProps {

@@ -12,14 +12,6 @@ const StyledFooter = styled.footer`
   overflow: hidden;
   position: relative;
   color: ${(props) => props.theme.secondary};
-
-  @media (max-width: 430px) {
-    height: 100px;
-  }
-
-  @media (max-width: 840px) {
-    height: 100px;
-  }
 `;
 
 const StyledInfoWrapper = styled.div`

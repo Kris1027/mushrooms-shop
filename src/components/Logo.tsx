@@ -8,14 +8,6 @@ const StyledLogo = styled.h1`
     color: ${(props) => props.theme.secondary};
     text-decoration: none;
   }
-
-  @media (max-width: 840px) {
-    font-size: 1.8rem;
-  }
-
-  @media (max-width: 430px) {
-    font-size: 1.6rem;
-  }
 `;
 
 export default function Logo() {

@@ -11,11 +11,11 @@ const StyledNav = styled.nav`
 `;
 
 const Menu: FunctionComponent = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 840);
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 880);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 840);
+      setIsMobile(window.innerWidth < 880);
     };
 
     window.addEventListener('resize', handleResize);
