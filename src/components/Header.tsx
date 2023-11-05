@@ -5,7 +5,7 @@ import Logo from './Logo';
 import { HiMoon, HiSun } from 'react-icons/hi2';
 import { themeProps } from '../App';
 
-const StyledHeader = styled.header`
+const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,7 +19,7 @@ const StyledHeader = styled.header`
   -webkit-backdrop-filter: blur(5px);
 `;
 
-const StyledThemeSwitcher = styled.div`
+const ThemeSwitcher = styled.div`
   font-size: 2rem;
 `;
 
@@ -36,14 +36,14 @@ interface HeaderProps {
 
 export default function Header({ switchTheme, theme, dark }: HeaderProps) {
   return (
-    <StyledHeader>
+    <HeaderWrapper>
       <Logo />
       <Panel>
         <Menu />
-        <StyledThemeSwitcher onClick={switchTheme}>
+        <ThemeSwitcher onClick={switchTheme}>
           {theme === dark ? <HiMoon /> : <HiSun />}
-        </StyledThemeSwitcher>
+        </ThemeSwitcher>
       </Panel>
-    </StyledHeader>
+    </HeaderWrapper>
   );
 }

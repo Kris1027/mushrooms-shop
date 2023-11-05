@@ -3,14 +3,14 @@ import { fakeData } from '../components/data/fakeData';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 
-const StyledWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  width: 70%;
+  width: 1280px;
   margin: 0 auto;
 `;
 
-const StyledImg = styled.img`
+const Img = styled.img`
   height: 600px;
   border-radius: 10%;
   margin: 2rem;
@@ -28,30 +28,30 @@ const StyledImg = styled.img`
   }
 `;
 
-const StyledHeading = styled.h1`
+const Heading = styled.h1`
   font-size: 5rem;
   color: ${(props) => props.theme.primary};
 `;
 
-const StyledSection = styled.div`
+const Section = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
 `;
 
-const StyledPrice = styled.p`
+const Price = styled.p`
   color: ${(props) => props.theme.third};
   font-weight: 700;
   font-size: 1.5rem;
 `;
 
-const StyledTxt = styled.p`
+const Txt = styled.p`
   font-size: 1.4rem;
   opacity: 0.8;
   color: ${(props) => props.theme.secondary};
 `;
 
-const StyledButton = styled.button`
+const Button = styled.button`
   font-size: 1rem;
   font-weight: 700;
   color: ${(props) => props.theme.third};
@@ -75,7 +75,7 @@ const StyledButton = styled.button`
   }
 `;
 
-const StyledInput = styled.input`
+const Input = styled.input`
   width: 20px;
   height: 20px;
   text-align: center;
@@ -111,23 +111,23 @@ export default function FullProduct() {
   }
 
   return (
-    <StyledWrapper>
-      <StyledImg src={prod.photos[0]} alt='' />
-      <StyledSection>
-        <StyledHeading>{prod.name}</StyledHeading>
-        <StyledTxt>{prod.longDescription}</StyledTxt>
+    <Wrapper>
+      <Img src={prod.photos[0]} alt='' />
+      <Section>
+        <Heading>{prod.name}</Heading>
+        <Txt>{prod.longDescription}</Txt>
         <div>
-          <StyledPrice>{prod.price} zł</StyledPrice>
-          <StyledButton onClick={handleRemoveAmount}>-</StyledButton>
-          <StyledInput type='text' value={amount} />
-          <StyledButton onClick={handleAddAmount}>+</StyledButton>
+          <Price>{prod.price} zł</Price>
+          <Button onClick={handleRemoveAmount}>-</Button>
+          <Input type='text' value={amount} />
+          <Button onClick={handleAddAmount}>+</Button>
         </div>
         <div>
-          <StyledButton onClick={() => nav(-1)}>Wstecz</StyledButton>
-          <StyledButton>Kup teraz</StyledButton>
-          <StyledButton>Dodaj do koszyka</StyledButton>
+          <Button onClick={() => nav(-1)}>Wstecz</Button>
+          <Button>Kup teraz</Button>
+          <Button>Dodaj do koszyka</Button>
         </div>
-      </StyledSection>
-    </StyledWrapper>
+      </Section>
+    </Wrapper>
   );
 }

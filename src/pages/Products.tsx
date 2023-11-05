@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { fakeData } from '../components/data/fakeData';
 import Product from '../components/Product';
 
-const StyledProductsWrapper = styled.div`
+const ProductsWrapper = styled.div`
   display: flex;
   gap: 3rem;
   flex-wrap: wrap;
@@ -16,10 +16,10 @@ const StyledProductsWrapper = styled.div`
 
 export default function Products() {
   return (
-    <StyledProductsWrapper>
+    <ProductsWrapper>
       {fakeData.map((prod) => (
         <Product prod={prod} key={prod.id} />
       ))}
-    </StyledProductsWrapper>
+    </ProductsWrapper>
   );
 }

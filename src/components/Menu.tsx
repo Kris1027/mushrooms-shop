@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import Burger from './Burger';
 import Navigation from './Navigation';
 
-const StyledNav = styled.nav`
+const Nav = styled.nav`
   display: flex;
   gap: 2rem;
   align-items: center;
@@ -25,7 +25,7 @@ const Menu: FunctionComponent = () => {
     };
   }, []);
 
-  return <StyledNav>{isMobile ? <Burger /> : <Navigation />}</StyledNav>;
+  return <Nav>{isMobile ? <Burger /> : <Navigation />}</Nav>;
 };
 
 export default Menu;

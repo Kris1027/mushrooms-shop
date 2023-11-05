@@ -3,11 +3,11 @@ import { HiBars4, HiXMark } from 'react-icons/hi2';
 import { styled } from 'styled-components';
 import Navigation from './Navigation';
 
-const StyledBurgerIcon = styled.div`
+const BurgerIcon = styled.div`
   font-size: 3rem;
 `;
 
-const StyledBurgerNav = styled.div`
+const BurgerNav = styled.div`
   position: absolute;
   top: 72px;
   left: 0;
@@ -36,13 +36,13 @@ const Burger: FunctionComponent = () => {
 
   return (
     <>
-      <StyledBurgerIcon onClick={handleOpenMobileMenu}>
+      <BurgerIcon onClick={handleOpenMobileMenu}>
         {isOpen ? <HiXMark /> : <HiBars4 />}
-      </StyledBurgerIcon>
+      </BurgerIcon>
       {isOpen && (
-        <StyledBurgerNav>
+        <BurgerNav>
           <Navigation />
-        </StyledBurgerNav>
+        </BurgerNav>
       )}
     </>
   );

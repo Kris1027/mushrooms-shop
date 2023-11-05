@@ -2,7 +2,7 @@ import { useRouteError } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-const StyledErrorWrapper = styled.main`
+const ErrorWrapper = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,12 +20,13 @@ export default function Error() {
   console.error(error);
 
   return (
-    <StyledErrorWrapper id='error-page'>
+    <ErrorWrapper id='error-page'>
       <h1>Oops!</h1>
+      <p>🛑</p>
       <p>Wybacz ale nie ma takiej strony, której szukasz...</p>
       <p>
         <i>{error.statusText || error.message}</i>
       </p>
-    </StyledErrorWrapper>
+    </ErrorWrapper>
   );
 }

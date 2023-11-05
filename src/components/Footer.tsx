@@ -7,14 +7,14 @@ import {
 } from 'react-icons/ai';
 import { themeProps } from '../App';
 
-const StyledFooter = styled.footer`
+const FooterWrapper = styled.footer`
   height: 220px;
   overflow: hidden;
   position: relative;
   color: ${(props) => props.theme.secondary};
 `;
 
-const StyledInfoWrapper = styled.div`
+const InfoWrapper = styled.div`
   position: absolute;
   top: 80%;
   left: 50%;
@@ -24,14 +24,14 @@ const StyledInfoWrapper = styled.div`
   z-index: 50;
 `;
 
-const StyledIconsWrapper = styled.div`
+const IconsWrapper = styled.div`
   display: flex;
   justify-content: center;
   gap: 0.7rem;
   font-size: 2rem;
 `;
 
-const StyledCopyrights = styled.div`
+const Copyrights = styled.div`
   font-size: 0.7rem;
 
   a {
@@ -40,7 +40,7 @@ const StyledCopyrights = styled.div`
   }
 `;
 
-const StyledIcon = styled.span`
+const Icon = styled.span`
   cursor: pointer;
 
   &:hover {
@@ -55,20 +55,20 @@ interface FooterProps {
 
 export default function Footer({ dark, theme }: FooterProps) {
   return (
-    <StyledFooter>
-      <StyledInfoWrapper>
-        <StyledIconsWrapper>
-          <StyledIcon>
+    <FooterWrapper>
+      <InfoWrapper>
+        <IconsWrapper>
+          <Icon>
             <AiFillFacebook />
-          </StyledIcon>
-          <StyledIcon>
+          </Icon>
+          <Icon>
             <AiFillLinkedin />
-          </StyledIcon>
-          <StyledIcon>
+          </Icon>
+          <Icon>
             <AiFillInstagram />
-          </StyledIcon>
-        </StyledIconsWrapper>
-        <StyledCopyrights>
+          </Icon>
+        </IconsWrapper>
+        <Copyrights>
           &copy; 2023 All rights reserved. Designed & crafted with love by{' '}
           <a
             href='https://www.linkedin.com/in/krzysztof-obarzanek-6b8803254/'
@@ -76,9 +76,9 @@ export default function Footer({ dark, theme }: FooterProps) {
           >
             Kris1027
           </a>
-        </StyledCopyrights>
-      </StyledInfoWrapper>
+        </Copyrights>
+      </InfoWrapper>
       <FooterWaves dark={dark} theme={theme} />
-    </StyledFooter>
+    </FooterWrapper>
   );
 }

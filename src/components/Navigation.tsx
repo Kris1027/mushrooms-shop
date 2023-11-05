@@ -5,7 +5,7 @@ import { HiInformationCircle, HiUser } from 'react-icons/hi2';
 import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-const StyledNavLinks = styled(NavLink)`
+const NavLinks = styled(NavLink)`
   display: flex;
   gap: 0.4rem;
   text-decoration: none;
@@ -15,16 +15,7 @@ const StyledNavLinks = styled(NavLink)`
 
   &.active {
     transform: scale(120%);
-    border-bottom: 3px solid;
-    background-color: black;
-
-    /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.27);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: ${(props) => props.theme.third};
   }
 `;
 
@@ -39,10 +30,10 @@ const NavLinkItems: FunctionComponent<NavLinkItemsProps> = ({
   Icon,
   label,
 }) => (
-  <StyledNavLinks to={to}>
+  <NavLinks to={to}>
     <Icon />
     <span>{label}</span>
-  </StyledNavLinks>
+  </NavLinks>
 );
 
 export default function Navigation() {

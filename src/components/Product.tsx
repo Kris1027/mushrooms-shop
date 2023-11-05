@@ -6,7 +6,7 @@ interface ProductProps {
   prod: fakeDataProps;
 }
 
-const StyledItemWrapper = styled.div`
+const ItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 240px;
@@ -27,22 +27,22 @@ const StyledItemWrapper = styled.div`
   }
 `;
 
-const StyledTitleWrapper = styled.div`
+const TitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `;
 
-const StyledTitle = styled.h1`
+const Title = styled.h1`
   font-size: 1.5rem;
   font-weight: 700;
   color: ${(props) => props.theme.secondary};
 `;
 
-const StyledPrice = styled.p`
+const Price = styled.p`
   color: ${(props) => props.theme.third};
 `;
 
-const StyledButton = styled.button`
+const Button = styled.button`
   margin: 0 auto;
   margin-top: 1rem;
   padding: 0.5rem;
@@ -67,7 +67,7 @@ const StyledButton = styled.button`
   }
 `;
 
-const StyledImg = styled.img`
+const Img = styled.img`
   opacity: 0.8;
   width: 80%;
   margin: 0 auto;
@@ -82,14 +82,14 @@ const StyledImg = styled.img`
 export default function Product({ prod }: ProductProps) {
   return (
     <Link to={`/products/${prod.id}`}>
-      <StyledItemWrapper key={prod.id}>
-        <StyledImg src={prod.photos[0]} alt={`${prod.name} picture`} />
-        <StyledTitleWrapper>
-          <StyledTitle>{prod.name}</StyledTitle>
-          <StyledPrice>{prod.price} zł</StyledPrice>
-        </StyledTitleWrapper>
-        <StyledButton>Dodaj do koszyka</StyledButton>
-      </StyledItemWrapper>
+      <ItemWrapper key={prod.id}>
+        <Img src={prod.photos[0]} alt={`${prod.name} picture`} />
+        <TitleWrapper>
+          <Title>{prod.name}</Title>
+          <Price>{prod.price} zł</Price>
+        </TitleWrapper>
+        <Button>Dodaj do koszyka</Button>
+      </ItemWrapper>
     </Link>
   );
 }

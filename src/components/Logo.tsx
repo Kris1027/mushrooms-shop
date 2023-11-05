@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-const StyledLogo = styled.h1`
+const LogoWrapper = styled.h1`
   a {
     font-size: 2rem;
     font-family: 'Berkshire Swash', serif;
@@ -12,8 +12,8 @@ const StyledLogo = styled.h1`
 
 export default function Logo() {
   return (
-    <StyledLogo>
+    <LogoWrapper>
       <Link to='/'>Hummer Mushrooms</Link>
-    </StyledLogo>
+    </LogoWrapper>
   );
 }

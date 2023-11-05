@@ -5,7 +5,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import { useState } from 'react';
 import GlobalStyle from './styles/GlobalStyle';
 
-const StyledWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -47,11 +47,11 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <StyledWrapper>
+      <Wrapper>
         <Header switchTheme={handleTheme} theme={theme} dark={darkTheme} />
         <Outlet />
         <Footer theme={theme} dark={darkTheme} />
-      </StyledWrapper>
+      </Wrapper>
     </ThemeProvider>
   );
 }
