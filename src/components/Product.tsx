@@ -77,7 +77,7 @@ const StyledImg = styled.img`
 
 export default function Product({ prod }: ProductProps) {
   return (
-    <Link to='/fullproduct'>
+    <Link to={`/fullproduct/${prod.id}`}>
       <StyledItemWrapper key={prod.id}>
         <StyledImg src={prod.photos[0]} alt={`${prod.name} picture`} />
         <StyledTitleWrapper>

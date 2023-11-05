@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { fakeData } from '../components/data/fakeData';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -72,7 +73,14 @@ const StyledButton = styled.button`
 `;
 
 export default function FullProduct() {
-  const prod = fakeData[0];
+  const { id } = useParams<{ id: string }>();
+  const nav = useNavigate();
+
+  const prod = fakeData.find((product) => product.id === Number(id));
+
+  if (!prod) {
+    return null;
+  }
 
   return (
     <StyledWrapper>
@@ -82,6 +90,7 @@ export default function FullProduct() {
         <StyledTxt>{prod.longDescription}</StyledTxt>
         <StyledPrice>{prod.price} zł</StyledPrice>
         <div>
+          <StyledButton onClick={() => nav(-1)}>Wstecz</StyledButton>
           <StyledButton>Kup teraz</StyledButton>
           <StyledButton>Dodaj do koszyka</StyledButton>
         </div>
