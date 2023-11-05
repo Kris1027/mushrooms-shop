@@ -35,11 +35,11 @@ const StyledTitleWrapper = styled.div`
 const StyledTitle = styled.h1`
   font-size: 1.5rem;
   font-weight: 700;
-  color: #f93943;
+  color: ${(props) => props.theme.secondary};
 `;
 
 const StyledPrice = styled.p`
-  color: #ffdd00;
+  color: ${(props) => props.theme.third};
 `;
 
 const StyledButton = styled.button`
@@ -47,8 +47,8 @@ const StyledButton = styled.button`
   margin-top: 1rem;
   padding: 0.5rem;
   border-radius: 16px;
-  background-color: #ffdd00;
-  color: #f93943;
+  background-color: ${(props) => props.theme.third};
+  color: ${(props) => props.theme.primary};
   border: none;
   width: 80%;
   transition: 0.1s linear;

@@ -1,5 +1,3 @@
-import GlobalStyle from './styles/GlobalStyle.ts';
-
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
@@ -42,8 +40,5 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <>
-    <GlobalStyle />
-    <RouterProvider router={router} />
-  </>
+  <RouterProvider router={router} />
 );

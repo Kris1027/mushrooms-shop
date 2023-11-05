@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { IconType } from 'react-icons';
 import { GiMushroomGills } from 'react-icons/gi';
-import { HiHome, HiInformationCircle, HiUser } from 'react-icons/hi2';
+import { HiInformationCircle, HiUser } from 'react-icons/hi2';
 import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
 
@@ -9,10 +9,9 @@ const StyledNavLinks = styled(NavLink)`
   display: flex;
   gap: 0.4rem;
   text-decoration: none;
-  color: white;
+  color: ${(props) => props.theme.secondary};
   font-size: 1.5rem;
-  font-weight: 700;
-  padding: 0.5rem;
+  padding: 0.3rem;
 
   &.active {
     transform: scale(120%);
@@ -54,11 +53,6 @@ const NavLinkItems: FunctionComponent<NavLinkItemsProps> = ({
 
 export default function Navigation() {
   const navLinks: NavLinkItemsProps[] = [
-    {
-      to: '/',
-      Icon: HiHome,
-      label: 'Główna',
-    },
     {
       to: '/products',
       Icon: GiMushroomGills,

@@ -18,7 +18,7 @@ export default function Products() {
   return (
     <StyledProductsWrapper>
       {fakeData.map((prod) => (
-        <Product prod={prod} />
+        <Product prod={prod} key={prod.id} />
       ))}
     </StyledProductsWrapper>
   );

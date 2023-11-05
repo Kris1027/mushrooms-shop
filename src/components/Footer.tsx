@@ -5,11 +5,13 @@ import {
   AiFillInstagram,
   AiFillLinkedin,
 } from 'react-icons/ai';
+import { themeProps } from '../App';
 
 const StyledFooter = styled.footer`
   height: 150px;
   overflow: hidden;
   position: relative;
+  color: ${(props) => props.theme.secondary};
 
   @media (max-width: 430px) {
     height: 100px;
@@ -42,22 +44,37 @@ const StyledCopyrights = styled.div`
 
   a {
     text-decoration: none;
-    color: #fff700;
-
-    &:hover {
-      color: #ff69e8;
-    }
+    color: ${(props) => props.theme.third};
   }
 `;
 
-export default function Footer() {
+const StyledIcon = styled.span`
+  cursor: pointer;
+
+  &:hover {
+    color: ${(props) => props.theme.third};
+  }
+`;
+
+interface FooterProps {
+  dark: themeProps;
+  theme: themeProps;
+}
+
+export default function Footer({ dark, theme }: FooterProps) {
   return (
     <StyledFooter>
       <StyledInfoWrapper>
         <StyledIconsWrapper>
-          <AiFillFacebook />
-          <AiFillLinkedin />
-          <AiFillInstagram />
+          <StyledIcon>
+            <AiFillFacebook />
+          </StyledIcon>
+          <StyledIcon>
+            <AiFillLinkedin />
+          </StyledIcon>
+          <StyledIcon>
+            <AiFillInstagram />
+          </StyledIcon>
         </StyledIconsWrapper>
         <StyledCopyrights>
           &copy; 2023 All rights reserved. Designed & crafted with love by{' '}
@@ -69,7 +86,7 @@ export default function Footer() {
           </a>
         </StyledCopyrights>
       </StyledInfoWrapper>
-      <FooterWaves />
+      <FooterWaves dark={dark} theme={theme} />
     </StyledFooter>
   );
 }

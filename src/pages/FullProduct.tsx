@@ -10,7 +10,7 @@ const StyledImg = styled.img`
   height: 600px;
   border-radius: 10%;
   margin: 2rem;
-  opacity: 0.8;
+  opacity: 0.9;
 
   background: rgba(255, 255, 255, 0.1);
   border-radius: 16px;
@@ -26,7 +26,7 @@ const StyledImg = styled.img`
 
 const StyledHeading = styled.h1`
   font-size: 5rem;
-  color: #f93943;
+  color: ${(props) => props.theme.primary};
 `;
 
 const StyledSection = styled.div`
@@ -36,7 +36,7 @@ const StyledSection = styled.div`
 `;
 
 const StyledPrice = styled.p`
-  color: yellow;
+  color: ${(props) => props.theme.third};
   font-weight: 700;
   font-size: 1.5rem;
 `;
@@ -44,13 +44,14 @@ const StyledPrice = styled.p`
 const StyledTxt = styled.p`
   font-size: 1.4rem;
   opacity: 0.8;
+  color: ${(props) => props.theme.secondary};
 `;
 
 const StyledButton = styled.button`
   font-size: 1rem;
   font-weight: 700;
-  color: yellow;
-  background-color: red;
+  color: ${(props) => props.theme.third};
+  background-color: ${(props) => props.theme.primary};
   padding: 1rem;
   border-radius: 16px;
   border: none;
