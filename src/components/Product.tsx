@@ -9,8 +9,8 @@ interface ProductProps {
 const StyledItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 200px;
-  height: 250px;
+  width: 240px;
+  height: 290px;
   cursor: pointer;
   padding: 0.5rem;
   transition: 0.2s linear;
@@ -69,6 +69,10 @@ const StyledButton = styled.button`
 
 const StyledImg = styled.img`
   opacity: 0.8;
+  width: 80%;
+  margin: 0 auto;
+
+  transform: scale(1.3);
 
   &:hover {
     opacity: 1;
@@ -77,7 +81,7 @@ const StyledImg = styled.img`
 
 export default function Product({ prod }: ProductProps) {
   return (
-    <Link to={`/fullproduct/${prod.id}`}>
+    <Link to={`/products/${prod.id}`}>
       <StyledItemWrapper key={prod.id}>
         <StyledImg src={prod.photos[0]} alt={`${prod.name} picture`} />
         <StyledTitleWrapper>
