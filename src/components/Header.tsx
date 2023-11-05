@@ -9,7 +9,6 @@ const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background: ${(props) => props.theme.primary}; */
   height: 70px;
   padding: 0 2rem;
 

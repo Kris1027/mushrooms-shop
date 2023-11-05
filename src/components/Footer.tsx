@@ -1,11 +1,9 @@
 import styled from 'styled-components';
-import FooterWaves from './FooterWaves';
 import {
   AiFillFacebook,
   AiFillInstagram,
   AiFillLinkedin,
 } from 'react-icons/ai';
-import { themeProps } from '../App';
 
 const FooterWrapper = styled.footer`
   height: 220px;
@@ -48,12 +46,7 @@ const Icon = styled.span`
   }
 `;
 
-interface FooterProps {
-  dark: themeProps;
-  theme: themeProps;
-}
-
-export default function Footer({ dark, theme }: FooterProps) {
+export default function Footer() {
   return (
     <FooterWrapper>
       <InfoWrapper>
@@ -78,7 +71,6 @@ export default function Footer({ dark, theme }: FooterProps) {
           </a>
         </Copyrights>
       </InfoWrapper>
-      <FooterWaves dark={dark} theme={theme} />
     </FooterWrapper>
   );
 }

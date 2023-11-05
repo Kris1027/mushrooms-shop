@@ -50,7 +50,7 @@ export default function App() {
       <Wrapper>
         <Header switchTheme={handleTheme} theme={theme} dark={darkTheme} />
         <Outlet />
-        <Footer theme={theme} dark={darkTheme} />
+        <Footer />
       </Wrapper>
     </ThemeProvider>
   );

@@ -17,7 +17,6 @@ export default function Login() {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
   `;
 
   const Heading = styled.h1`
@@ -53,6 +52,7 @@ export default function Login() {
     border-radius: 10px;
     border: none;
     background-color: ${(props) => props.theme.third};
+    cursor: pointer;
 
     &:focus {
       outline: none;
