@@ -1,6 +1,7 @@
 export interface fakeDataProps {
   id: number;
   name: string;
+  quantity: number;
   photos: string[];
   price: number;
   description: string;
@@ -11,6 +12,7 @@ export const fakeData: fakeDataProps[] = [
   {
     id: 1,
     name: 'Lions Mane',
+    quantity: 3,
     photos: [
       'https://www.mcmyco.com/wp-content/uploads/2021/04/Lionss-mane-1.png',
       '/',
@@ -24,6 +26,7 @@ export const fakeData: fakeDataProps[] = [
   {
     id: 2,
     name: 'Cordyceps',
+    quantity: 15,
     photos: [
       'https://www.mcmyco.com/wp-content/uploads/2021/04/Cordyceps-1.png',
       '/',
@@ -37,6 +40,7 @@ export const fakeData: fakeDataProps[] = [
   {
     id: 3,
     name: 'Reishi',
+    quantity: 8,
     photos: [
       'https://www.mcmyco.com/wp-content/uploads/2021/04/Reishi-1.png',
       '/',
@@ -51,6 +55,7 @@ export const fakeData: fakeDataProps[] = [
   {
     id: 4,
     name: 'Turkey Tail',
+    quantity: 7,
     photos: [
       'https://www.mcmyco.com/wp-content/uploads/2021/04/TurkeyTail-1.png',
       '/',
@@ -64,6 +69,7 @@ export const fakeData: fakeDataProps[] = [
   {
     id: 5,
     name: 'Chaga',
+    quantity: 2,
     photos: [
       'https://www.mcmyco.com/wp-content/uploads/2021/04/Chaga-1.png',
       '/',
