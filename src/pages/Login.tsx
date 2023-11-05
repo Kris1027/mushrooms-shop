@@ -8,15 +8,21 @@ export default function Login() {
     justify-content: center;
     width: 300px;
     height: 400px;
-    background-color: #767676;
     border-radius: 16px;
     padding: 2rem;
     margin: 0 auto;
+
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   `;
 
   const Heading = styled.h1`
     font-size: 3rem;
-    color: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.secondary};
     font-weight: 700;
   `;
 
@@ -28,11 +34,12 @@ export default function Login() {
 
   const Input = styled.input`
     font-size: 1.5rem;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.8rem;
     width: 100%;
     height: 50px;
     border-radius: 10px;
     border: none;
+    background-color: ${(props) => props.theme.secondary};
 
     &:focus {
       outline: none;
@@ -60,8 +67,8 @@ export default function Login() {
     <Wrapper>
       <Heading>Zaloguj się</Heading>
       <Txt>Wprowadź swoje dane</Txt>
-      <Input type='text' placeholder='login' />
-      <Input type='text' placeholder='hasło' />
+      <Input type='text' />
+      <Input type='text' />
       <Button type='submit'>Zaloguj się</Button>
     </Wrapper>
   );

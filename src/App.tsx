@@ -10,8 +10,6 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-  max-width: 1280px;
-  min-width: 400px;
   margin: 0 auto;
   z-index: 50;
 `;
@@ -25,14 +23,14 @@ export interface themeProps {
 
 const darkTheme: themeProps = {
   primary: '#2E282A',
-  secondary: '#FDFFFC',
+  secondary: '#FFEEDB',
   third: '#F1D302',
   appBG: '#020202',
 };
 
 const lightTheme: themeProps = {
   primary: '#F1D302',
-  secondary: '#020202',
+  secondary: '#FFEEDB',
   third: '#f93943',
   appBG: '#FFEEDB',
 };

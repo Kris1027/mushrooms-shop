@@ -8,7 +8,7 @@ import {
 import { themeProps } from '../App';
 
 const StyledFooter = styled.footer`
-  height: 150px;
+  height: 220px;
   overflow: hidden;
   position: relative;
   color: ${(props) => props.theme.secondary};

@@ -6,6 +6,8 @@ import { useState } from 'react';
 const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
+  width: 70%;
+  margin: 0 auto;
 `;
 
 const StyledImg = styled.img`
