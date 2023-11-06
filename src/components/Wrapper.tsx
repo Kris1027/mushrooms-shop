@@ -14,8 +14,8 @@ const Content = styled.main`
   justify-content: center;
   align-items: center;
   align-content: start;
-  gap: 4rem;
-  padding-top: 2rem;
+  gap: 3rem;
+  padding: 3rem 0;
   min-height: 100vmin;
   max-width: 1280px;
   margin: 0 auto;

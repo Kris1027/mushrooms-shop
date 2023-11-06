@@ -4,6 +4,8 @@ import {
   AiFillInstagram,
   AiFillLinkedin,
 } from 'react-icons/ai';
+import { fakeData } from './data/fakeData';
+import Logo from './Logo';
 
 export default function Footer() {
   return (
@@ -18,7 +20,13 @@ export default function Footer() {
         <Icon>
           <AiFillInstagram />
         </Icon>
+        <Logo />
       </Socials>
+      <Products>
+        {fakeData.map((prod) => (
+          <span key={prod.id}>{prod.name}</span>
+        ))}
+      </Products>
       <Copyrights>
         &copy; 2023 All rights reserved. Designed & crafted with love by{' '}
         <a
@@ -32,14 +40,16 @@ export default function Footer() {
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0.7rem;
 `;
 
 const Socials = styled.section`
   display: flex;
+  gap: 1rem;
 `;
 
 const Icon = styled.span`
@@ -58,4 +68,11 @@ const Copyrights = styled.section`
     text-decoration: none;
     color: ${(props) => props.theme.third};
   }
+`;
+
+const Products = styled.section`
+  display: flex;
+  font-size: 1rem;
+  gap: 1rem;
+  border-bottom: 1px solid #fff;
 `;
