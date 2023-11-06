@@ -8,8 +8,6 @@ import GlobalStyle from './styles/GlobalStyle';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
   margin: 0 auto;
   z-index: 50;
 `;

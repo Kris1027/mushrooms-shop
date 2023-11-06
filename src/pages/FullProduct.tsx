@@ -95,10 +95,6 @@ export default function FullProduct() {
 
   const prod = fakeData.find((product) => product.id === Number(id));
 
-  if (!prod) {
-    return null;
-  }
-
   function handleAddAmount() {
     if (amount === prod?.quantity) return;
     setAmount((prevAmount) => prevAmount + 1);
@@ -107,6 +103,10 @@ export default function FullProduct() {
   function handleRemoveAmount() {
     if (amount === 0) return;
     setAmount((prevAmount) => prevAmount - 1);
+  }
+
+  if (!prod) {
+    return null;
   }
 
   return (

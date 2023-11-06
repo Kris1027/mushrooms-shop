@@ -1,7 +1,15 @@
 import styled from 'styled-components';
 
 export default function Login() {
-  const Wrapper = styled.form`
+  const Wrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 6rem 0;
+  `;
+
+  const Login = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,7 +18,6 @@ export default function Login() {
     height: 400px;
     border-radius: 16px;
     padding: 2rem;
-    margin: 0 auto;
 
     background: rgba(255, 255, 255, 0.1);
     border-radius: 16px;
@@ -23,12 +30,13 @@ export default function Login() {
     font-size: 3rem;
     color: ${(props) => props.theme.secondary};
     font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
   `;
 
   const Txt = styled.p`
-    margin-top: 0.4rem;
-    margin-bottom: 4rem;
-    opacity: 0.7;
+    font-size: 1rem;
+    margin-bottom: 1rem;
   `;
 
   const Input = styled.input`
@@ -63,13 +71,41 @@ export default function Login() {
     }
   `;
 
+  const Register = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+    padding: 2rem;
+
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  `;
+
   return (
     <Wrapper>
-      <Heading>Zaloguj się</Heading>
-      <Txt>Wprowadź swoje dane</Txt>
-      <Input type='text' />
-      <Input type='text' />
-      <Button type='submit'>Zaloguj się</Button>
+      <Login>
+        <Heading>Zaloguj się</Heading>
+        <Txt>Masz już konto?</Txt>
+        <Input type='text' placeholder='Login' />
+        <Input type='text' placeholder='Hasło' />
+        <Button type='submit'>Zaloguj się</Button>
+      </Login>
+      <Register>
+        <Heading>Zarejestruj się!</Heading>
+        <Txt>Nie masz jeszcze konta?</Txt>
+        <Input type='text' placeholder='Imię' />
+        <Input type='text' placeholder='Nazwisko' />
+        <Input type='email' placeholder='adres e-mail' />
+        <Input type='text' placeholder='Ulica' />
+        <Input type='text' placeholder='Kod pocztowy' />
+        <Input type='email' placeholder='Miasto' />
+        <Input type='number' placeholder='Telefon' />
+        <Button type='submit'>Utwórz konto</Button>
+      </Register>
     </Wrapper>
   );
 }

@@ -8,6 +8,11 @@ const ErrorWrapper = styled.main`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  color: white;
+`;
+
+const Emoji = styled.div`
+  font-size: 5rem;
 `;
 
 type RouteError = {
@@ -22,7 +27,7 @@ export default function Error() {
   return (
     <ErrorWrapper id='error-page'>
       <h1>Oops!</h1>
-      <p>🛑</p>
+      <Emoji>⛔️</Emoji>
       <p>Wybacz ale nie ma takiej strony, której szukasz...</p>
       <p>
         <i>{error.statusText || error.message}</i>
