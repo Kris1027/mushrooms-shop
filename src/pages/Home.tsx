@@ -1,5 +1,9 @@
 import Wrapper from '../components/Wrapper';
 
 export default function Home() {
-  return <Wrapper>elo</Wrapper>;
+  return (
+    <Wrapper>
+      <video autoPlay muted loop src='/public/home.mp4'></video>
+    </Wrapper>
+  );
 }
