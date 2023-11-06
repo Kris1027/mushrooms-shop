@@ -45,6 +45,7 @@ const Wrapper = styled.footer`
   flex-direction: column;
   align-items: center;
   gap: 0.7rem;
+  flex-wrap: wrap;
 `;
 
 const Socials = styled.section`

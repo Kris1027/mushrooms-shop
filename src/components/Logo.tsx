@@ -11,6 +11,8 @@ export default function Logo() {
 }
 
 const LogoWrapper = styled.h1`
+  min-width: 300px;
+
   a {
     font-size: 2rem;
     font-family: 'Berkshire Swash', serif;
