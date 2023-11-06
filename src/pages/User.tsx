@@ -1,5 +1,12 @@
-import Login from './Login';
+import Login from '../components/Login';
+import Register from '../components/Register';
+import Wrapper from '../components/Wrapper';
 
 export default function User() {
-  return <Login />;
+  return (
+    <Wrapper>
+      <Login />
+      <Register />
+    </Wrapper>
+  );
 }

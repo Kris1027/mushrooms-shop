@@ -1,16 +1,11 @@
 import { Outlet } from 'react-router-dom';
+import { useState } from 'react';
+
+import GlobalStyle from './styles/GlobalStyle';
+import { ThemeProvider } from 'styled-components';
+
 import Footer from './components/Footer';
 import Header from './components/Header';
-import styled, { ThemeProvider } from 'styled-components';
-import { useState } from 'react';
-import GlobalStyle from './styles/GlobalStyle';
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  z-index: 50;
-`;
 
 export interface themeProps {
   primary: string;
@@ -45,11 +40,9 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Wrapper>
-        <Header switchTheme={handleTheme} theme={theme} dark={darkTheme} />
-        <Outlet />
-        <Footer />
-      </Wrapper>
+      <Header switchTheme={handleTheme} theme={theme} dark={darkTheme} />
+      <Outlet />
+      <Footer />
     </ThemeProvider>
   );
 }

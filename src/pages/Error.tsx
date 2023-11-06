@@ -2,19 +2,6 @@ import { useRouteError } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-const ErrorWrapper = styled.main`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: white;
-`;
-
-const Emoji = styled.div`
-  font-size: 5rem;
-`;
-
 type RouteError = {
   message: string;
   statusText: string;
@@ -35,3 +22,16 @@ export default function Error() {
     </ErrorWrapper>
   );
 }
+
+const ErrorWrapper = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vmin;
+  color: white;
+`;
+
+const Emoji = styled.div`
+  font-size: 5rem;
+`;

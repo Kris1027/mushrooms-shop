@@ -1,7 +1,5 @@
+import Wrapper from '../components/Wrapper';
+
 export default function Info() {
-  return (
-    <div>
-      <h1>INFO</h1>
-    </div>
-  );
+  return <Wrapper>elo info</Wrapper>;
 }

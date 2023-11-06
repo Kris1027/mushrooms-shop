@@ -1,9 +1,26 @@
-import styled from 'styled-components';
-import { fakeDataProps } from './data/fakeData';
 import { Link } from 'react-router-dom';
+
+import styled from 'styled-components';
+
+import { fakeDataProps } from './data/fakeData';
 
 interface ProductProps {
   prod: fakeDataProps;
+}
+
+export default function Product({ prod }: ProductProps) {
+  return (
+    <Link to={`/products/${prod.id}`}>
+      <ItemWrapper key={prod.id}>
+        <Img src={prod.photos[0]} alt={`${prod.name} picture`} />
+        <TitleWrapper>
+          <Title>{prod.name}</Title>
+          <Price>{prod.price} zł</Price>
+        </TitleWrapper>
+        <Button>Dodaj do koszyka</Button>
+      </ItemWrapper>
+    </Link>
+  );
 }
 
 const ItemWrapper = styled.div`
@@ -77,18 +94,3 @@ const Img = styled.img`
     opacity: 1;
   }
 `;
-
-export default function Product({ prod }: ProductProps) {
-  return (
-    <Link to={`/products/${prod.id}`}>
-      <ItemWrapper key={prod.id}>
-        <Img src={prod.photos[0]} alt={`${prod.name} picture`} />
-        <TitleWrapper>
-          <Title>{prod.name}</Title>
-          <Price>{prod.price} zł</Price>
-        </TitleWrapper>
-        <Button>Dodaj do koszyka</Button>
-      </ItemWrapper>
-    </Link>
-  );
-}

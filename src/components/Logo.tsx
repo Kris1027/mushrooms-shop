@@ -1,5 +1,14 @@
 import { Link } from 'react-router-dom';
+
 import { styled } from 'styled-components';
+
+export default function Logo() {
+  return (
+    <LogoWrapper>
+      <Link to='/'>Hummer Mushrooms</Link>
+    </LogoWrapper>
+  );
+}
 
 const LogoWrapper = styled.h1`
   a {
@@ -9,11 +18,3 @@ const LogoWrapper = styled.h1`
     text-decoration: none;
   }
 `;
-
-export default function Logo() {
-  return (
-    <LogoWrapper>
-      <Link to='/'>Hummer Mushrooms</Link>
-    </LogoWrapper>
-  );
-}

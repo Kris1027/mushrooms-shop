@@ -1,16 +1,11 @@
-import { type FunctionComponent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+
 import { styled } from 'styled-components';
 
 import Burger from './Burger';
 import Navigation from './Navigation';
 
-const Nav = styled.nav`
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-`;
-
-const Menu: FunctionComponent = () => {
+export default function Menu() {
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 880);
 
   useEffect(() => {
@@ -26,6 +21,10 @@ const Menu: FunctionComponent = () => {
   }, []);
 
   return <Nav>{isMobile ? <Burger /> : <Navigation />}</Nav>;
-};
+}
 
-export default Menu;
+const Nav = styled.nav`
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+`;

@@ -5,6 +5,33 @@ import {
   AiFillLinkedin,
 } from 'react-icons/ai';
 
+export default function Footer() {
+  return (
+    <Wrapper>
+      <Socials>
+        <Icon>
+          <AiFillFacebook />
+        </Icon>
+        <Icon>
+          <AiFillLinkedin />
+        </Icon>
+        <Icon>
+          <AiFillInstagram />
+        </Icon>
+      </Socials>
+      <Copyrights>
+        &copy; 2023 All rights reserved. Designed & crafted with love by{' '}
+        <a
+          href='https://www.linkedin.com/in/krzysztof-obarzanek-6b8803254/'
+          target='blank'
+        >
+          Kris1027
+        </a>
+      </Copyrights>
+    </Wrapper>
+  );
+}
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -32,30 +59,3 @@ const Copyrights = styled.section`
     color: ${(props) => props.theme.third};
   }
 `;
-
-export default function Footer() {
-  return (
-    <Wrapper>
-      <Socials>
-        <Icon>
-          <AiFillFacebook />
-        </Icon>
-        <Icon>
-          <AiFillLinkedin />
-        </Icon>
-        <Icon>
-          <AiFillInstagram />
-        </Icon>
-      </Socials>
-      <Copyrights>
-        &copy; 2023 All rights reserved. Designed & crafted with love by{' '}
-        <a
-          href='https://www.linkedin.com/in/krzysztof-obarzanek-6b8803254/'
-          target='blank'
-        >
-          Kris1027
-        </a>
-      </Copyrights>
-    </Wrapper>
-  );
-}

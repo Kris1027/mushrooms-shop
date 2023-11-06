@@ -1,9 +1,30 @@
 import styled from 'styled-components';
+import { HiMoon, HiSun } from 'react-icons/hi2';
+
+import { themeProps } from '../App';
 
 import Menu from './Menu';
 import Logo from './Logo';
-import { HiMoon, HiSun } from 'react-icons/hi2';
-import { themeProps } from '../App';
+
+interface HeaderProps {
+  switchTheme: () => void;
+  theme: themeProps;
+  dark: themeProps;
+}
+
+export default function Header({ switchTheme, theme, dark }: HeaderProps) {
+  return (
+    <HeaderWrapper>
+      <Logo />
+      <Panel>
+        <Menu />
+        <ThemeSwitcher onClick={switchTheme}>
+          {theme === dark ? <HiMoon /> : <HiSun />}
+        </ThemeSwitcher>
+      </Panel>
+    </HeaderWrapper>
+  );
+}
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -26,23 +47,3 @@ const Panel = styled.div`
   display: flex;
   gap: 2rem;
 `;
-
-interface HeaderProps {
-  switchTheme: () => void;
-  theme: themeProps;
-  dark: themeProps;
-}
-
-export default function Header({ switchTheme, theme, dark }: HeaderProps) {
-  return (
-    <HeaderWrapper>
-      <Logo />
-      <Panel>
-        <Menu />
-        <ThemeSwitcher onClick={switchTheme}>
-          {theme === dark ? <HiMoon /> : <HiSun />}
-        </ThemeSwitcher>
-      </Panel>
-    </HeaderWrapper>
-  );
-}

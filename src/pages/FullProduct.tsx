@@ -1,14 +1,53 @@
-import styled from 'styled-components';
-import { fakeData } from '../components/data/fakeData';
-import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  width: 1280px;
-  margin: 0 auto;
-`;
+import styled from 'styled-components';
+
+import { fakeData } from '../components/data/fakeData';
+import Wrapper from '../components/Wrapper';
+
+export default function FullProduct() {
+  const { id } = useParams<{ id: string }>();
+  const nav = useNavigate();
+  const [amount, setAmount] = useState(0);
+
+  const prod = fakeData.find((product) => product.id === Number(id));
+
+  function handleAddAmount() {
+    if (amount === prod?.quantity) return;
+    setAmount((prevAmount) => prevAmount + 1);
+  }
+
+  function handleRemoveAmount() {
+    if (amount === 0) return;
+    setAmount((prevAmount) => prevAmount - 1);
+  }
+
+  if (!prod) {
+    return null;
+  }
+
+  return (
+    <Wrapper>
+      <Img src={prod.photos[0]} alt='' />
+      <Section>
+        <Heading>{prod.name}</Heading>
+        <Txt>{prod.longDescription}</Txt>
+        <div>
+          <Price>{prod.price} zł</Price>
+          <Button onClick={handleRemoveAmount}>-</Button>
+          <Input type='text' value={amount} />
+          <Button onClick={handleAddAmount}>+</Button>
+        </div>
+        <div>
+          <Button onClick={() => nav(-1)}>Wstecz</Button>
+          <Button>Kup teraz</Button>
+          <Button>Dodaj do koszyka</Button>
+        </div>
+      </Section>
+    </Wrapper>
+  );
+}
 
 const Img = styled.img`
   height: 600px;
@@ -87,46 +126,3 @@ const Input = styled.input`
     outline: none;
   }
 `;
-
-export default function FullProduct() {
-  const { id } = useParams<{ id: string }>();
-  const nav = useNavigate();
-  const [amount, setAmount] = useState(0);
-
-  const prod = fakeData.find((product) => product.id === Number(id));
-
-  function handleAddAmount() {
-    if (amount === prod?.quantity) return;
-    setAmount((prevAmount) => prevAmount + 1);
-  }
-
-  function handleRemoveAmount() {
-    if (amount === 0) return;
-    setAmount((prevAmount) => prevAmount - 1);
-  }
-
-  if (!prod) {
-    return null;
-  }
-
-  return (
-    <Wrapper>
-      <Img src={prod.photos[0]} alt='' />
-      <Section>
-        <Heading>{prod.name}</Heading>
-        <Txt>{prod.longDescription}</Txt>
-        <div>
-          <Price>{prod.price} zł</Price>
-          <Button onClick={handleRemoveAmount}>-</Button>
-          <Input type='text' value={amount} />
-          <Button onClick={handleAddAmount}>+</Button>
-        </div>
-        <div>
-          <Button onClick={() => nav(-1)}>Wstecz</Button>
-          <Button>Kup teraz</Button>
-          <Button>Dodaj do koszyka</Button>
-        </div>
-      </Section>
-    </Wrapper>
-  );
-}

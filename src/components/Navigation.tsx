@@ -1,23 +1,10 @@
-import { FunctionComponent } from 'react';
+import { NavLink } from 'react-router-dom';
+import { type FunctionComponent } from 'react';
+
 import { IconType } from 'react-icons';
 import { GiMushroomGills } from 'react-icons/gi';
 import { HiInformationCircle, HiUser } from 'react-icons/hi2';
-import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
-
-const NavLinks = styled(NavLink)`
-  display: flex;
-  gap: 0.4rem;
-  text-decoration: none;
-  color: ${(props) => props.theme.secondary};
-  font-size: 1.5rem;
-  padding: 0.3rem;
-
-  &.active {
-    transform: scale(120%);
-    color: ${(props) => props.theme.third};
-  }
-`;
 
 interface NavLinkItemsProps {
   to: string;
@@ -63,3 +50,17 @@ export default function Navigation() {
     </>
   );
 }
+
+const NavLinks = styled(NavLink)`
+  display: flex;
+  gap: 0.4rem;
+  text-decoration: none;
+  color: ${(props) => props.theme.secondary};
+  font-size: 1.5rem;
+  padding: 0.3rem;
+
+  &.active {
+    transform: scale(120%);
+    color: ${(props) => props.theme.third};
+  }
+`;
