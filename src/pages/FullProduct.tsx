@@ -36,7 +36,13 @@ export default function FullProduct() {
         <div>
           <Price>{prod.price} zł</Price>
           <Button onClick={handleRemoveAmount}>-</Button>
-          <Input type='text' value={amount} />
+          <Input
+            type='text'
+            value={amount}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setAmount(Number(e.target.value))
+            }
+          />
           <Button onClick={handleAddAmount}>+</Button>
         </div>
         <div>

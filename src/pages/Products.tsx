@@ -1,6 +1,6 @@
 import { fakeData } from '../components/data/fakeData';
-import Product from '../components/Product';
 
+import Product from '../components/Product';
 import Wrapper from '../components/Wrapper';
 
 export default function Products() {
