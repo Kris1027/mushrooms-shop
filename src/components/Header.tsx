@@ -1,12 +1,13 @@
+import { useCartSelector } from '../store/hooks';
+
 import styled from 'styled-components';
 import { HiMoon, HiShoppingCart, HiSun } from 'react-icons/hi2';
 
-import { themeProps } from '../App';
+import { type themeProps } from '../App';
 
 import Menu from './Menu';
 import Logo from './Logo';
 import { Link } from 'react-router-dom';
-import { useCartSelector } from '../store/hooks';
 
 interface HeaderProps {
   switchTheme: () => void;
@@ -24,7 +25,7 @@ export default function Header({ switchTheme, theme, dark }: HeaderProps) {
       <Logo />
       <Panel>
         <Menu />
-        <Basket to='/basket'>
+        <Basket to='/cart'>
           <HiShoppingCart />
           {cartQuantity === 0 ? null : <Quantity>{cartQuantity}</Quantity>}
         </Basket>
