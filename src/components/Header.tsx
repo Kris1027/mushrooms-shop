@@ -1,10 +1,12 @@
 import styled from 'styled-components';
-import { HiMoon, HiSun } from 'react-icons/hi2';
+import { HiMoon, HiShoppingCart, HiSun } from 'react-icons/hi2';
 
 import { themeProps } from '../App';
 
 import Menu from './Menu';
 import Logo from './Logo';
+import { Link } from 'react-router-dom';
+import { useCartSelector } from '../store/hooks';
 
 interface HeaderProps {
   switchTheme: () => void;
@@ -13,11 +15,19 @@ interface HeaderProps {
 }
 
 export default function Header({ switchTheme, theme, dark }: HeaderProps) {
+  const cartQuantity = useCartSelector((state) =>
+    state.cart.items.reduce((val, item) => val + item.quantity, 0)
+  );
+
   return (
     <HeaderWrapper>
       <Logo />
       <Panel>
         <Menu />
+        <Basket to='/basket'>
+          <HiShoppingCart />
+          {cartQuantity === 0 ? null : <Quantity>{cartQuantity}</Quantity>}
+        </Basket>
         <ThemeSwitcher onClick={switchTheme}>
           {theme === dark ? <HiMoon /> : <HiSun />}
         </ThemeSwitcher>
@@ -46,4 +56,18 @@ const ThemeSwitcher = styled.div`
 const Panel = styled.div`
   display: flex;
   gap: 2rem;
+`;
+
+const Basket = styled(Link)`
+  display: flex;
+  gap: 0.3rem;
+  font-size: 2rem;
+  color: red;
+  color: ${(props) => props.theme.secondary};
+  text-decoration: none;
+`;
+
+const Quantity = styled.span`
+  font-size: 1.3rem;
+  color: ${(props) => props.theme.third};
 `;

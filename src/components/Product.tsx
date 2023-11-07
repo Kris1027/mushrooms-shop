@@ -1,9 +1,8 @@
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
 import { fakeDataProps } from './data/fakeData';
-import { useCartSelector } from '../store/hooks';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../store/cartSlice';
 interface ProductProps {
@@ -17,21 +16,17 @@ export default function Product({ prod }: ProductProps) {
     dispatch(addToCart({ id: prod.id, name: prod.name, price: prod.price }));
   }
 
-  const cartQuantity = useCartSelector((state) =>
-    state.cart.items.reduce((val, item) => val + item.quantity, 0)
-  );
-
   return (
-    // <Link to={`/products/${prod.id}`}>
     <ItemWrapper key={prod.id}>
-      <Img src={prod.image} alt={`${prod.name} picture`} />
+      <Link to={`/products/${prod.id}`}>
+        <Img src={prod.image} alt={`${prod.name} picture`} />
+      </Link>
       <TitleWrapper>
         <Title>{prod.name}</Title>
         <Price>{prod.price} zł</Price>
       </TitleWrapper>
-      <Button onClick={handleAddToCart}>Dodaj do koszyka {cartQuantity}</Button>
+      <Button onClick={handleAddToCart}>Dodaj do koszyka</Button>
     </ItemWrapper>
-    // </Link>
   );
 }
 

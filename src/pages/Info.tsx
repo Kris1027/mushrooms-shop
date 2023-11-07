@@ -6,9 +6,9 @@ export default function Info() {
     <Wrapper>
       {fakeData.map((prod) => (
         <div key={prod.id}>
-          <img src={prod.photos[0]} alt='' />
+          <img src={prod.image} alt='' />
           <h1>{prod.name}</h1>
-          <p>{prod.longDescription}</p>
+          <p>{prod.description}</p>
         </div>
       ))}
     </Wrapper>
