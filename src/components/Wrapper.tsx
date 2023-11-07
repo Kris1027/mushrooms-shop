@@ -19,6 +19,7 @@ const Content = styled.main`
   min-height: 100vmin;
   max-width: 1280px;
   margin: 0 auto;
+  text-align: center;
 
   a {
     text-decoration: none;

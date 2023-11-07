@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export default function Login() {
   return (
     <Wrapper>
-      <Heading>Zaloguj się</Heading>
       <Txt>Masz już konto?</Txt>
+      <Heading>Zaloguj się!</Heading>
       <Input type='text' placeholder='Login' />
       <Input type='text' placeholder='Hasło' />
       <Button type='submit'>Zaloguj się</Button>

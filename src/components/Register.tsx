@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export default function Register() {
   return (
     <Wrapper>
-      <Heading>Zarejestruj się!</Heading>
       <Txt>Nie masz jeszcze konta?</Txt>
+      <Heading>Zarejestruj się!</Heading>
       <Input type='text' placeholder='Imię' />
       <Input type='text' placeholder='Nazwisko' />
       <Input type='email' placeholder='Adres e-mail' />
