@@ -1,5 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { useState } from 'react';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 import GlobalStyle from './styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
@@ -38,11 +40,13 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Header switchTheme={handleTheme} theme={theme} dark={darkTheme} />
-      <Outlet />
-      <Footer />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Header switchTheme={handleTheme} theme={theme} dark={darkTheme} />
+        <Outlet />
+        <Footer />
+      </ThemeProvider>
+    </Provider>
   );
 }

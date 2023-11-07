@@ -29,10 +29,10 @@ export default function FullProduct() {
 
   return (
     <Wrapper>
-      <Img src={prod.photos[0]} alt='' />
+      <Img src={prod.image} alt='' />
       <Section>
         <Heading>{prod.name}</Heading>
-        <Txt>{prod.longDescription}</Txt>
+        <Txt>{prod.description}</Txt>
         <div>
           <Price>{prod.price} zł</Price>
           <Button onClick={handleRemoveAmount}>-</Button>
