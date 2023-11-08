@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import Wrapper from '../components/Wrapper';
 import { fakeData } from '../components/data/fakeData';
 
@@ -6,11 +7,16 @@ export default function Info() {
     <Wrapper>
       {fakeData.map((prod) => (
         <div key={prod.id}>
+          <Heading>{prod.name}</Heading>
           <img src={prod.image} alt='' />
-          <h1>{prod.name}</h1>
           <p>{prod.description}</p>
         </div>
       ))}
     </Wrapper>
   );
 }
+
+const Heading = styled.h1`
+  font-size: 8rem;
+  color: ${(props) => props.theme.third};
+`;

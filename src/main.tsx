@@ -7,7 +7,7 @@ import Info from './pages/Info.tsx';
 import Products from './pages/Products.tsx';
 import User from './pages/User.tsx';
 import Home from './pages/Home.tsx';
-import Cart from './components/Cart.tsx';
+import Cart from './pages/Cart.tsx';
 
 const router = createBrowserRouter([
   {

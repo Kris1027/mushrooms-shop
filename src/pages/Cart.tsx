@@ -1,5 +1,5 @@
-import CartItems from './CartItems';
-import Wrapper from './Wrapper';
+import CartItems from '../components/CartItems';
+import Wrapper from '../components/Wrapper';
 
 export default function Cart() {
   return (
