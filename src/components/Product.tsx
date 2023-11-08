@@ -3,9 +3,10 @@ import { addToCart } from '../store/cartSlice';
 
 import styled from 'styled-components';
 
-import { fakeDataProps } from './data/fakeData';
+import { FakeDataProps } from './data/fakeData';
+
 interface ProductProps {
-  prod: fakeDataProps;
+  prod: FakeDataProps;
 }
 
 export default function Product({ prod }: ProductProps) {
