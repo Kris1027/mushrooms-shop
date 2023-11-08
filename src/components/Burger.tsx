@@ -27,7 +27,11 @@ export default function Burger() {
 }
 
 const BurgerIcon = styled.div`
-  font-size: 3rem;
+  font-size: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const BurgerNav = styled.div`

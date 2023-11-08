@@ -6,11 +6,11 @@ import Burger from './Burger';
 import Navigation from './Navigation';
 
 export default function Menu() {
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 880);
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 900);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 880);
+      setIsMobile(window.innerWidth < 900);
     };
 
     window.addEventListener('resize', handleResize);
@@ -25,6 +25,6 @@ export default function Menu() {
 
 const Nav = styled.nav`
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
 `;

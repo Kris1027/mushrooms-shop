@@ -29,9 +29,9 @@ export default function Header({ switchTheme, theme, dark }: HeaderProps) {
           <HiShoppingCart />
           {cartQuantity === 0 ? null : <Quantity>{cartQuantity}</Quantity>}
         </Basket>
-        <ThemeSwitcher onClick={switchTheme}>
+        <div onClick={switchTheme}>
           {theme === dark ? <HiMoon /> : <HiSun />}
-        </ThemeSwitcher>
+        </div>
       </Panel>
     </HeaderWrapper>
   );
@@ -43,26 +43,31 @@ const HeaderWrapper = styled.header`
   align-items: center;
   height: 70px;
   padding: 0 2rem;
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: center;
 
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-`;
 
-const ThemeSwitcher = styled.div`
-  font-size: 2rem;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
 `;
 
 const Panel = styled.div`
   display: flex;
   gap: 2rem;
+  align-items: center;
 `;
 
 const Basket = styled(Link)`
   display: flex;
   gap: 0.3rem;
-  font-size: 2rem;
+
   color: red;
   color: ${(props) => props.theme.secondary};
   text-decoration: none;

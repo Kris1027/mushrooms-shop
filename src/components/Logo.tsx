@@ -11,12 +11,20 @@ export default function Logo() {
 }
 
 const LogoWrapper = styled.h1`
-  min-width: 300px;
+  min-width: 295px;
 
   a {
     font-size: 2rem;
     font-family: 'Berkshire Swash', serif;
     color: ${(props) => props.theme.secondary};
     text-decoration: none;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    min-width: 230px;
   }
 `;
