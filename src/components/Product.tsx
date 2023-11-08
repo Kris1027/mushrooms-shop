@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../store/cartSlice';
 
 import styled from 'styled-components';
 
 import { fakeDataProps } from './data/fakeData';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../store/cartSlice';
 interface ProductProps {
   prod: fakeDataProps;
 }
@@ -16,14 +15,14 @@ export default function Product({ prod }: ProductProps) {
     dispatch(addToCart({ id: prod.id, name: prod.name, price: prod.price }));
   }
 
+  const formattedPrice = prod.price.toFixed(2);
+
   return (
     <ItemWrapper key={prod.id}>
-      <Link to={`/products/${prod.id}`}>
-        <Img src={prod.image} alt={`${prod.name} picture`} />
-      </Link>
+      <Img src={prod.image} alt={`${prod.name} picture`} />
       <TitleWrapper>
         <Title>{prod.name}</Title>
-        <Price>{prod.price} zł</Price>
+        <Price>{formattedPrice} zł</Price>
       </TitleWrapper>
       <Button onClick={handleAddToCart}>Dodaj do koszyka</Button>
     </ItemWrapper>

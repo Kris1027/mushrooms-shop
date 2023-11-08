@@ -7,7 +7,6 @@ import Info from './pages/Info.tsx';
 import Products from './pages/Products.tsx';
 import User from './pages/User.tsx';
 import Home from './pages/Home.tsx';
-import FullProduct from './pages/FullProduct.tsx';
 import Cart from './components/Cart.tsx';
 
 const router = createBrowserRouter([
@@ -31,10 +30,6 @@ const router = createBrowserRouter([
       {
         path: '/products',
         element: <Products />,
-      },
-      {
-        path: '/products/:id',
-        element: <FullProduct />,
       },
       {
         path: '/cart',
