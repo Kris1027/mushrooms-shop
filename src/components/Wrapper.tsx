@@ -16,12 +16,18 @@ const Content = styled.main`
   align-content: start;
   gap: 3rem;
   padding: 3rem 5rem;
-  min-height: 80vmin;
+  min-height: 100vmin;
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;
 
   a {
     text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+    padding: 1rem 1rem;
+    max-width: 768px;
   }
 `;

@@ -11,15 +11,17 @@ export default function Footer() {
   return (
     <Wrapper>
       <Socials>
-        <Icon>
-          <AiFillFacebook />
-        </Icon>
-        <Icon>
-          <AiFillLinkedin />
-        </Icon>
-        <Icon>
-          <AiFillInstagram />
-        </Icon>
+        <div>
+          <Icon>
+            <AiFillFacebook />
+          </Icon>
+          <Icon>
+            <AiFillLinkedin />
+          </Icon>
+          <Icon>
+            <AiFillInstagram />
+          </Icon>
+        </div>
         <Logo />
       </Socials>
       <Products>
@@ -46,11 +48,21 @@ const Wrapper = styled.footer`
   align-items: center;
   gap: 0.7rem;
   flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    gap: 0.3rem;
+  }
 `;
 
 const Socials = styled.section`
   display: flex;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Icon = styled.span`
@@ -59,6 +71,21 @@ const Icon = styled.span`
 
   &:hover {
     color: ${(props) => props.theme.third};
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+const Products = styled.section`
+  display: flex;
+  font-size: 1rem;
+  gap: 1rem;
+  border-bottom: 1px solid #fff;
+
+  @media (max-width: 768px) {
+    font-size: 0.6rem;
   }
 `;
 
@@ -69,11 +96,8 @@ const Copyrights = styled.section`
     text-decoration: none;
     color: ${(props) => props.theme.third};
   }
-`;
 
-const Products = styled.section`
-  display: flex;
-  font-size: 1rem;
-  gap: 1rem;
-  border-bottom: 1px solid #fff;
+  @media (max-width: 768px) {
+    font-size: 0.5rem;
+  }
 `;

@@ -76,4 +76,8 @@ const Basket = styled(Link)`
 const Quantity = styled.span`
   font-size: 1.3rem;
   color: ${(props) => props.theme.third};
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
