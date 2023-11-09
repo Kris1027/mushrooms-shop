@@ -44,7 +44,6 @@ const HeaderWrapper = styled.header`
   height: 70px;
   padding: 0 2rem;
   font-size: 1.5rem;
-  width: 100%;
   text-align: center;
 
   background: rgba(255, 255, 255, 0.1);
