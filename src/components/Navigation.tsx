@@ -1,75 +1,94 @@
 import { NavLink } from 'react-router-dom';
-import { type FunctionComponent } from 'react';
+import { useState, type FunctionComponent, useEffect } from 'react';
 
 import { IconType } from 'react-icons';
 import { GiMushroomGills } from 'react-icons/gi';
-import { HiInformationCircle, HiUser } from 'react-icons/hi2';
+import { HiBars3, HiInformationCircle, HiUser } from 'react-icons/hi2';
 import { styled } from 'styled-components';
 
 interface NavLinkItemsProps {
   to: string;
   Icon: IconType;
   label: string;
-  onClick: () => void;
 }
 
 const NavLinkItems: FunctionComponent<NavLinkItemsProps> = ({
   to,
   Icon,
   label,
-  onClick,
 }) => (
-  <NavLinks to={to} onClick={onClick}>
+  <NavLinks to={to}>
     <Icon />
     <span>{label}</span>
   </NavLinks>
 );
 
-export default function Navigation({ closeMenu }) {
+export default function Navigation() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  function handleResize() {
+    setIsMobile(window.innerWidth <= 768);
+  }
+
+  useEffect(function () {
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const navLinks: NavLinkItemsProps[] = [
     {
       to: '/products',
       Icon: GiMushroomGills,
       label: 'Grzyby',
-      onClick: closeMenu,
     },
     {
       to: '/info',
       Icon: HiInformationCircle,
       label: 'Info',
-      onClick: closeMenu,
     },
     {
       to: '/user',
       Icon: HiUser,
       label: 'Użytkownik',
-      onClick: closeMenu,
     },
   ];
 
   return (
-    <>
-      {navLinks.map((link) => (
-        <NavLinkItems key={link.to} {...link} onClick={closeMenu} />
-      ))}
-    </>
+    <Nav>
+      {isMobile ? (
+        <Burger />
+      ) : (
+        navLinks.map((link) => <NavLinkItems key={link.to} {...link} />)
+      )}
+    </Nav>
   );
 }
 
+const Nav = styled.nav`
+  display: flex;
+  font-size: 1.5rem;
+  gap: 1rem;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+const Burger = styled(HiBars3)`
+  font-size: 2rem;
+`;
+
 const NavLinks = styled(NavLink)`
   display: flex;
-  gap: 0.4rem;
+  justify-content: space-between;
   text-decoration: none;
   color: ${(props) => props.theme.secondary};
-  font-size: 1.5rem;
-  padding: 0.3rem;
 
   &.active {
-    transform: scale(120%);
     color: ${(props) => props.theme.third};
-  }
-
-  @media (max-width: 890px) {
-    font-size: 3rem;
   }
 `;
