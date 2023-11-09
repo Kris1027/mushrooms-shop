@@ -25,13 +25,6 @@ const darkTheme: themeProps = {
   appBG: '#020202',
 };
 
-// const darkTheme: themeProps = {
-//   primary: '#2E282A',
-//   secondary: '#FFEEDB',
-//   third: '#F1D302',
-//   appBG: '#020202',
-// };
-
 const lightTheme: themeProps = {
   primary: '#FFECD1',
   secondary: '#FF7D00',

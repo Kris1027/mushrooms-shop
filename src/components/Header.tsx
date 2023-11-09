@@ -52,7 +52,6 @@ const HeaderWrapper = styled.header`
   -webkit-backdrop-filter: blur(5px);
 
   @media (max-width: 768px) {
-    font-size: 1rem;
     padding: 0 1rem;
   }
 `;

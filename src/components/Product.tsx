@@ -48,6 +48,16 @@ const ItemWrapper = styled.div`
   &:hover {
     transform: scale(1.04);
   }
+
+  @media (max-width: 425px) {
+    width: 320px;
+    height: 350px;
+  }
+
+  @media (max-width: 768px) {
+    width: 400px;
+    height: 420px;
+  }
 `;
 
 const TitleWrapper = styled.div`

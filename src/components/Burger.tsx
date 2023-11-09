@@ -12,6 +12,10 @@ export default function Burger() {
     setIsOpen((prevState) => !prevState);
   }
 
+  function handleCloseMobileMenu() {
+    setIsOpen(false);
+  }
+
   return (
     <>
       <BurgerIcon onClick={handleOpenMobileMenu}>
@@ -19,7 +23,7 @@ export default function Burger() {
       </BurgerIcon>
       {isOpen && (
         <BurgerNav>
-          <Navigation />
+          <Navigation closeMenu={handleCloseMobileMenu} />
         </BurgerNav>
       )}
     </>
@@ -28,24 +32,21 @@ export default function Burger() {
 
 const BurgerIcon = styled.div`
   font-size: 2rem;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
 `;
 
 const BurgerNav = styled.div`
   position: absolute;
-  top: 72px;
-  left: 0;
-  height: calc(100% - 72px);
-  width: 100%;
-  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 5rem;
+  padding-top: 5rem;
+  top: 70px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
 
-  background: rgba(255, 255, 255, 0.27);
+  background: rgba(0, 0, 0, 0.8);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);

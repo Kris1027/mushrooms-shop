@@ -9,6 +9,7 @@ export default function Wrapper({ children }: WrapProps) {
 }
 
 const Content = styled.main`
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -20,6 +21,7 @@ const Content = styled.main`
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;
+  z-index: -50;
 
   a {
     text-decoration: none;
