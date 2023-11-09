@@ -62,6 +62,10 @@ const Panel = styled.div`
   display: flex;
   gap: 2rem;
   align-items: center;
+
+  @media (max-width: 768px) {
+    gap: 0.7rem;
+  }
 `;
 
 const Basket = styled(Link)`

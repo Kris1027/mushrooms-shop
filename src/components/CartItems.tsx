@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { type CartItem, addToCart, removeFromCart } from '../store/cartSlice';
 import { useCartDispatch, useCartSelector } from '../store/hooks';
 import { useNavigate } from 'react-router-dom';
+import Wrapper from './Wrapper';
 
 export default function CartItems() {
   const cartItems = useCartSelector((state) => state.cart.items);
@@ -24,7 +25,7 @@ export default function CartItems() {
   }
 
   return (
-    <>
+    <Wrapper>
       {cartItems.length === 0 && <p>Nie masz nic w koszu!</p>}
       {cartItems.length > 0 && (
         <ItemsWrapper>
@@ -49,15 +50,15 @@ export default function CartItems() {
               );
             })}
           </ItemsList>
-          <TotalPrice>{formattedTotalPrice} zł</TotalPrice>
           <ButtonsWrapper>
             <Button onClick={() => navi(-1)}>Wróć</Button>
             <Button>Usuń wszystko</Button>
             <Button>Płatność</Button>
+            <TotalPrice>Całkowity koszt {formattedTotalPrice} zł</TotalPrice>
           </ButtonsWrapper>
         </ItemsWrapper>
       )}
-    </>
+    </Wrapper>
   );
 }
 
@@ -65,23 +66,41 @@ const ItemsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5rem;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
 `;
 
 const ItemsList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
 `;
 
 const Item = styled.li`
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    gap: 0.4rem;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 2rem;
+  font-weight: 700;
   width: 250px;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const Txt = styled.p`
@@ -104,6 +123,11 @@ const ItemButton = styled.button`
   &:active {
     transform: scale(1.1);
   }
+
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 30px;
+  }
 `;
 
 const Quantity = styled.span`
@@ -116,13 +140,23 @@ const TotalPrice = styled.p`
   color: ${(props) => props.theme.third};
   font-size: 2rem;
   font-weight: 700;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const Button = styled(ItemButton)`
-  width: 200px;
+  width: 100px;
+  height: 40px;
+  font-size: 1rem;
 `;
 
 const ButtonsWrapper = styled.div`
   display: flex;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+  }
 `;

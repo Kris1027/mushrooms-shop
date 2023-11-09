@@ -59,7 +59,7 @@ const Socials = styled.section`
   gap: 1rem;
 
   @media (max-width: 768px) {
-    gap: 0.5rem;
+    gap: 0;
     flex-direction: column;
     align-items: center;
   }

@@ -16,7 +16,7 @@ const Content = styled.main`
   align-content: start;
   gap: 3rem;
   padding: 3rem 5rem;
-  min-height: 100vmin;
+  min-height: 80vh;
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;

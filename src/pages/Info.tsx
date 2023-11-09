@@ -6,17 +6,29 @@ export default function Info() {
   return (
     <Wrapper>
       {fakeData.map((prod) => (
-        <div key={prod.id}>
+        <InfoProd key={prod.id}>
+          <Img src={prod.image} alt='' />
           <Heading>{prod.name}</Heading>
-          <img src={prod.image} alt='' />
           <p>{prod.description}</p>
-        </div>
+        </InfoProd>
       ))}
     </Wrapper>
   );
 }
 
 const Heading = styled.h1`
-  font-size: 8rem;
+  font-size: 2rem;
   color: ${(props) => props.theme.third};
+`;
+
+const InfoProd = styled.div`
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+`;
+
+const Img = styled.img`
+  width: 200px;
 `;
