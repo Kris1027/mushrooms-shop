@@ -82,7 +82,6 @@ const Products = styled.section`
   display: flex;
   font-size: 1rem;
   gap: 1rem;
-  border-bottom: 1px solid #fff;
 
   @media (max-width: 768px) {
     font-size: 0.6rem;

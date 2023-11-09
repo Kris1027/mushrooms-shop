@@ -51,7 +51,7 @@ const Input = styled.input`
   height: 50px;
   border-radius: 10px;
   border: none;
-  background-color: ${(props) => props.theme.secondary};
+  background-color: ${(props) => props.theme.primary};
 
   &:focus {
     outline: none;
