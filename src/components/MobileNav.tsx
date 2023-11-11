@@ -52,13 +52,16 @@ export default function MobileNav() {
 
 const Nav = styled.nav`
   display: flex;
-  font-size: 1.5rem;
-  gap: 1rem;
+  gap: 2rem;
+  flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+  height: 80vh;
 
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
+  background: rgba(35, 35, 35, 0.7);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 `;
 
 const NavLinks = styled(NavLink)`
@@ -66,6 +69,7 @@ const NavLinks = styled(NavLink)`
   justify-content: space-between;
   text-decoration: none;
   color: ${(props) => props.theme.secondary};
+  font-size: 2rem;
 
   &.active {
     color: ${(props) => props.theme.third};

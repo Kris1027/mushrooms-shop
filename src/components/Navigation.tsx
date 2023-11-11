@@ -1,9 +1,9 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useState, type FunctionComponent, useEffect } from 'react';
 
 import { IconType } from 'react-icons';
 import { GiMushroomGills } from 'react-icons/gi';
-import { HiBars3, HiInformationCircle, HiUser } from 'react-icons/hi2';
+import { HiBars3, HiInformationCircle, HiUser, HiXMark } from 'react-icons/hi2';
 import { styled } from 'styled-components';
 
 interface NavLinkItemsProps {
@@ -24,11 +24,19 @@ const NavLinkItems: FunctionComponent<NavLinkItemsProps> = ({
 );
 
 export default function Navigation() {
+  const location = useLocation();
+  const navigation = useNavigate();
+
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [OpenBurger, setOpenBurger] = useState(false);
 
   function handleResize() {
     setIsMobile(window.innerWidth <= 768);
   }
+
+  useEffect(() => {
+    setOpenBurger(location.pathname === '/nav');
+  }, [location]);
 
   useEffect(function () {
     window.addEventListener('resize', handleResize);
@@ -56,10 +64,23 @@ export default function Navigation() {
     },
   ];
 
+  function handleToggleMobileMenu() {
+    setOpenBurger(false);
+    navigation(-1);
+  }
+
   return (
     <Nav>
       {isMobile ? (
-        <Burger />
+        <>
+          <Burger to='/nav'>
+            {OpenBurger ? (
+              <HiXMark onClick={handleToggleMobileMenu} />
+            ) : (
+              <HiBars3 />
+            )}
+          </Burger>
+        </>
       ) : (
         navLinks.map((link) => <NavLinkItems key={link.to} {...link} />)
       )}
@@ -69,17 +90,21 @@ export default function Navigation() {
 
 const Nav = styled.nav`
   display: flex;
-  font-size: 1.5rem;
   gap: 1rem;
   align-items: center;
+
+  a {
+    color: ${(props) => props.theme.secondary};
+  }
 
   @media (max-width: 768px) {
     font-size: 1rem;
   }
 `;
 
-const Burger = styled(HiBars3)`
+const Burger = styled(Link)`
   font-size: 2rem;
+  cursor: pointer;
 `;
 
 const NavLinks = styled(NavLink)`

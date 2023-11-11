@@ -34,6 +34,7 @@ export default function Header({ switchTheme, theme, dark }: HeaderProps) {
 }
 
 const HeaderWrapper = styled.header`
+  position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -49,7 +50,7 @@ const HeaderWrapper = styled.header`
 
 const Basket = styled(Link)`
   display: flex;
-  gap: 0.3rem;
+  gap: 0.2rem;
 
   color: red;
   color: ${(props) => props.theme.secondary};
@@ -59,8 +60,10 @@ const Basket = styled(Link)`
 const Quantity = styled.span`
   font-size: 1.3rem;
   color: ${(props) => props.theme.third};
+  width: 30px;
 
   @media (max-width: 768px) {
     font-size: 1rem;
+    width: 10px;
   }
 `;
