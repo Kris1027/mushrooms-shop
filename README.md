@@ -6,5 +6,7 @@
 - TypeScript
 - React Router
 - React Redux
+- React Query
 - React Icons
+- Supabase
 - Styled Components
