@@ -51,8 +51,7 @@ const HeaderWrapper = styled.header`
 const Basket = styled(Link)`
   display: flex;
   gap: 0.2rem;
-
-  color: red;
+  width: 3.5rem;
   color: ${(props) => props.theme.secondary};
   text-decoration: none;
 `;
