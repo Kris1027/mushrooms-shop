@@ -11,6 +11,7 @@ export interface DataProps {
   regularPrice: number;
   discount: number;
   description?: string;
+  form: string;
 }
 
 interface ProductProps {
@@ -37,7 +38,9 @@ export default function Product({ prod }: ProductProps) {
   return (
     <Wrapper key={prod.id}>
       <Image style={{ backgroundImage: `url(${prod.image})` }} />
-      <Title>{prod.name}</Title>
+      <Title>
+        {prod.name} ({prod.form})
+      </Title>
       <PriceWrapper>
         <Price>{totalPrice} zł</Price>
         <Discount>
