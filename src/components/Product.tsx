@@ -3,7 +3,7 @@ import { addToCart } from '../store/cartSlice';
 
 import styled from 'styled-components';
 
-import { FakeDataProps } from './data/fakeData';
+import { FakeDataProps } from '../data/fakeData';
 
 interface ProductProps {
   prod: FakeDataProps;

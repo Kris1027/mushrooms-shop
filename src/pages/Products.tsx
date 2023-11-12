@@ -1,4 +1,4 @@
-import { fakeData } from '../components/data/fakeData';
+import { fakeData } from '../data/fakeData';
 
 import Product from '../components/Product';
 import Wrapper from '../components/Wrapper';

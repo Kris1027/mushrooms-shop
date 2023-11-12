@@ -4,7 +4,7 @@ import {
   AiFillInstagram,
   AiFillLinkedin,
 } from 'react-icons/ai';
-import { fakeData } from './data/fakeData';
+import { fakeData } from '../data/fakeData';
 import Logo from './Logo';
 
 export default function Footer() {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Wrapper from '../components/Wrapper';
-import { fakeData } from '../components/data/fakeData';
+import { fakeData } from '../data/fakeData';
 
 export default function Info() {
   return (
