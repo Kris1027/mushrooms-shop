@@ -4,7 +4,7 @@ import {
   AiFillInstagram,
   AiFillLinkedin,
 } from 'react-icons/ai';
-import { fakeData } from '../data/fakeData';
+
 import Logo from './Logo';
 
 export default function Footer() {
@@ -24,11 +24,6 @@ export default function Footer() {
         </div>
         <Logo />
       </Socials>
-      <Products>
-        {fakeData.map((prod) => (
-          <span key={prod.id}>{prod.name}</span>
-        ))}
-      </Products>
       <Copyrights>
         &copy; 2023 All rights reserved. Designed & crafted with love by{' '}
         <a
@@ -75,16 +70,6 @@ const Icon = styled.span`
 
   @media (max-width: 768px) {
     font-size: 1rem;
-  }
-`;
-
-const Products = styled.section`
-  display: flex;
-  font-size: 1rem;
-  gap: 1rem;
-
-  @media (max-width: 768px) {
-    font-size: 0.6rem;
   }
 `;
 

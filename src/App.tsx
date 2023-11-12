@@ -2,12 +2,22 @@ import { Outlet } from 'react-router-dom';
 import { useState } from 'react';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import GlobalStyle from './styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 
 import Footer from './components/Footer';
 import Header from './components/Header';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 0,
+    },
+  },
+});
 
 export interface themeProps {
   primary: string;
@@ -43,13 +53,16 @@ export default function App() {
   }
 
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Header switchTheme={handleTheme} theme={theme} dark={darkTheme} />
-        <Outlet />
-        <Footer />
-      </ThemeProvider>
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Header switchTheme={handleTheme} theme={theme} dark={darkTheme} />
+          <Outlet />
+          <Footer />
+        </ThemeProvider>
+      </Provider>
+    </QueryClientProvider>
   );
 }

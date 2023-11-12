@@ -3,10 +3,18 @@ import { addToCart } from '../store/cartSlice';
 
 import styled from 'styled-components';
 
-import { FakeDataProps } from '../data/fakeData';
+interface DataProps {
+  id: number;
+  name: string;
+  quantity: number;
+  image: string;
+  regularPrice: number;
+  discount: number;
+  description?: string;
+}
 
 interface ProductProps {
-  prod: FakeDataProps;
+  prod: DataProps;
 }
 
 export default function Product({ prod }: ProductProps) {
