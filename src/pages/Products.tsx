@@ -4,6 +4,7 @@ import { getProducts } from '../services/apiProducts';
 
 import Wrapper from '../components/Wrapper';
 import Product from '../components/Product';
+import Spinner from '../components/Spinner';
 
 export default function Products() {
   const {
@@ -15,7 +16,7 @@ export default function Products() {
     queryFn: getProducts,
   });
 
-  if (isLoading) return <p>Ładowanie...</p>;
+  if (isLoading) return <Spinner />;
   if (error) return <p>{error.message}</p>;
   return (
     <Wrapper>
