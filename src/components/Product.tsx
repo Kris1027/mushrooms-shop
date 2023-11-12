@@ -3,7 +3,7 @@ import { addToCart } from '../store/cartSlice';
 
 import styled from 'styled-components';
 
-interface DataProps {
+export interface DataProps {
   id: number;
   name: string;
   quantity: number;

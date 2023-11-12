@@ -16,8 +16,7 @@ export default function Products() {
   });
 
   if (isLoading) return <p>Ładowanie...</p>;
-  if (error) return console.log(error.message);
-
+  if (error) return <p>{error.message}</p>;
   return (
     <Wrapper>
       {products?.map((prod) => (
