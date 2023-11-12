@@ -10,7 +10,7 @@ export default function CartItems() {
   const navi = useNavigate();
 
   const totalPrice = cartItems.reduce(
-    (val, item) => val + item.price * item.quantity,
+    (val, item) => val + (item.regularPrice - item.discount) * item.quantity,
     0
   );
 
@@ -32,7 +32,8 @@ export default function CartItems() {
           <ItemsList>
             {cartItems.map((item) => {
               const fotmattedPrice = `${
-                Number(item.price.toFixed(2)) * item.quantity
+                Number((item.regularPrice - item.discount).toFixed(2)) *
+                item.quantity
               } zł`;
 
               return (

@@ -13,17 +13,32 @@ export default function Product({ prod }: ProductProps) {
   const dispatch = useDispatch();
 
   function handleAddToCart() {
-    dispatch(addToCart({ id: prod.id, name: prod.name, price: prod.price }));
+    dispatch(
+      addToCart({
+        id: prod.id,
+        name: prod.name,
+        regularPrice: prod.regularPrice,
+        discount: prod.discount,
+      })
+    );
   }
 
-  const formattedPrice = prod.price.toFixed(2);
+  const beforeDiscountPrice = prod.regularPrice.toFixed(2);
+  const totalPrice = (prod.regularPrice - prod.discount).toFixed(2);
 
   return (
     <ItemWrapper key={prod.id}>
       <Img src={prod.image} alt={`${prod.name} picture`} />
       <TitleWrapper>
         <Title>{prod.name}</Title>
-        <Price>{formattedPrice} zł</Price>
+        <div>
+          <Price>{totalPrice} zł</Price>
+          <DiscountPrice>
+            {beforeDiscountPrice === totalPrice
+              ? null
+              : `${beforeDiscountPrice} zł`}
+          </DiscountPrice>
+        </div>
       </TitleWrapper>
       <Button onClick={handleAddToCart}>Dodaj do koszyka</Button>
     </ItemWrapper>
@@ -73,6 +88,11 @@ const Title = styled.h1`
 
 const Price = styled.p`
   color: ${(props) => props.theme.third};
+`;
+
+const DiscountPrice = styled.div`
+  text-decoration: line-through;
+  font-size: 0.7rem;
 `;
 
 const Button = styled.button`
