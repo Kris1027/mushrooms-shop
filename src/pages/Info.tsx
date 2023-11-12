@@ -42,4 +42,5 @@ const Title = styled.h1`
 
 const Text = styled.p`
   color: ${(props) => props.theme.primary};
+  font-size: 0.9rem;
 `;
