@@ -36,9 +36,7 @@ export default function Product({ prod }: ProductProps) {
 
   return (
     <Wrapper key={prod.id}>
-      <div>
-        <img src={prod.image} alt={`${prod.name} picture`} />
-      </div>
+      <Image style={{ backgroundImage: `url(${prod.image})` }} />
       <Title>{prod.name}</Title>
       <PriceWrapper>
         <Price>{totalPrice} zł</Price>
@@ -60,25 +58,25 @@ const Wrapper = styled.div`
   border-radius: 16px;
   overflow: hidden;
   width: 350px;
+  height: 500px;
 
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+`;
 
-  img {
-    width: 100%;
-    opacity: 0.9;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
+const Image = styled.div`
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
 `;
 
 const Title = styled.h1`
   font-size: 1.5rem;
   font-weight: 700;
+  padding: 0 2rem;
   color: ${(props) => props.theme.third};
 `;
 
