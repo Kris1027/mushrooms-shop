@@ -35,106 +35,81 @@ export default function Product({ prod }: ProductProps) {
   const totalPrice = (prod.regularPrice - prod.discount).toFixed(2);
 
   return (
-    <ItemWrapper key={prod.id}>
-      <Image>
+    <Wrapper key={prod.id}>
+      <div>
         <img src={prod.image} alt={`${prod.name} picture`} />
-      </Image>
-      <TitleWrapper>
-        <Title>{prod.name}</Title>
-        <div>
-          <Price>{totalPrice} zł</Price>
-          <DiscountPrice>
-            {beforeDiscountPrice === totalPrice
-              ? null
-              : `${beforeDiscountPrice} zł`}
-          </DiscountPrice>
-        </div>
-      </TitleWrapper>
+      </div>
+      <Title>{prod.name}</Title>
+      <PriceWrapper>
+        <Price>{totalPrice} zł</Price>
+        <Discount>
+          {beforeDiscountPrice === totalPrice
+            ? null
+            : `${beforeDiscountPrice} zł`}
+        </Discount>
+      </PriceWrapper>
       <Button onClick={handleAddToCart}>Dodaj do koszyka</Button>
-    </ItemWrapper>
+    </Wrapper>
   );
 }
 
-const ItemWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 240px;
-  height: 320px;
-  cursor: pointer;
-  padding: 0.5rem;
-  transition: 0.2s linear;
+  gap: 1rem;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 350px;
 
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 
-  @media (max-width: 425px) {
-    width: 320px;
-    height: 370px;
-  }
+  img {
+    width: 100%;
+    opacity: 0.9;
 
-  @media (max-width: 768px) {
-    width: 400px;
-    height: 500px;
+    &:hover {
+      opacity: 1;
+    }
   }
-`;
-
-const TitleWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
 `;
 
 const Title = styled.h1`
   font-size: 1.5rem;
   font-weight: 700;
-  color: ${(props) => props.theme.secondary};
-`;
-
-const Price = styled.p`
   color: ${(props) => props.theme.third};
 `;
 
-const DiscountPrice = styled.div`
-  text-decoration: line-through;
+const PriceWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+`;
+
+const Price = styled.span`
+  font-size: 1rem;
+  font-weight: 700;
+  color: ${(props) => props.theme.secondary};
+`;
+
+const Discount = styled.span`
   font-size: 0.7rem;
+  color: ${(props) => props.theme.third};
+  text-decoration: line-through;
 `;
 
 const Button = styled.button`
-  margin: 0 auto;
-  margin-top: 1rem;
+  font-size: 1rem;
   padding: 0.5rem;
-  border-radius: 16px;
   background-color: ${(props) => props.theme.third};
   color: ${(props) => props.theme.primary};
+  border-radius: 16px;
   border: none;
-  width: 80%;
-  transition: 0.1s linear;
   cursor: pointer;
 
-  &:hover {
-    transform: scale(1.07);
-  }
-
-  &:focus {
-    outline: none;
-  }
-
   &:active {
-    transform: scale(1);
-  }
-`;
-
-const Image = styled.div`
-  img {
-    width: 100%;
-    opacity: 0.9;
-    transition: 0.2s linear;
-
-    &:hover {
-      opacity: 1;
-      transform: scale(1.5);
-    }
+    transform: scale(0.9);
   }
 `;
