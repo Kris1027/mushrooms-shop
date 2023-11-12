@@ -36,7 +36,9 @@ export default function Product({ prod }: ProductProps) {
 
   return (
     <ItemWrapper key={prod.id}>
-      <Img src={prod.image} alt={`${prod.name} picture`} />
+      <Image>
+        <img src={prod.image} alt={`${prod.name} picture`} />
+      </Image>
       <TitleWrapper>
         <Title>{prod.name}</Title>
         <div>
@@ -57,7 +59,7 @@ const ItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 240px;
-  height: 290px;
+  height: 320px;
   cursor: pointer;
   padding: 0.5rem;
   transition: 0.2s linear;
@@ -68,18 +70,14 @@ const ItemWrapper = styled.div`
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 
-  &:hover {
-    transform: scale(1.04);
-  }
-
   @media (max-width: 425px) {
     width: 320px;
-    height: 350px;
+    height: 370px;
   }
 
   @media (max-width: 768px) {
     width: 400px;
-    height: 420px;
+    height: 500px;
   }
 `;
 
@@ -128,14 +126,15 @@ const Button = styled.button`
   }
 `;
 
-const Img = styled.img`
-  opacity: 0.8;
-  width: 80%;
-  margin: 0 auto;
+const Image = styled.div`
+  img {
+    width: 100%;
+    opacity: 0.9;
+    transition: 0.2s linear;
 
-  transform: scale(1.3);
-
-  &:hover {
-    opacity: 1;
+    &:hover {
+      opacity: 1;
+      transform: scale(1.5);
+    }
   }
 `;
