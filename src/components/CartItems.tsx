@@ -3,6 +3,7 @@ import { type CartItem, addToCart, removeFromCart } from '../store/cartSlice';
 import { useCartDispatch, useCartSelector } from '../store/hooks';
 import { useNavigate } from 'react-router-dom';
 import Wrapper from './Wrapper';
+import Login from './Login';
 
 export default function CartItems() {
   const cartItems = useCartSelector((state) => state.cart.items);
@@ -26,7 +27,12 @@ export default function CartItems() {
 
   return (
     <Wrapper>
-      {cartItems.length === 0 && <p>Nie masz nic w koszu!</p>}
+      {cartItems.length === 0 && (
+        <>
+          <EmptyBasket>Nie masz nic w koszu!</EmptyBasket>
+          <Login />
+        </>
+      )}
       {cartItems.length > 0 && (
         <ItemsWrapper>
           <ItemsList>
@@ -63,6 +69,15 @@ export default function CartItems() {
   );
 }
 
+const EmptyBasket = styled.h1`
+  font-size: 2rem;
+  color: ${(props) => props.theme.third};
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
 const ItemsWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -76,6 +91,7 @@ const ItemsWrapper = styled.div`
 const ItemsList = styled.ul`
   display: flex;
   flex-direction: column;
+  align-items: end;
   gap: 2rem;
 
   @media (max-width: 768px) {
@@ -97,7 +113,6 @@ const Item = styled.li`
 const Title = styled.h1`
   font-size: 2rem;
   font-weight: 700;
-  width: 250px;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -105,7 +120,11 @@ const Title = styled.h1`
 `;
 
 const Txt = styled.p`
-  ${(props) => props.theme.secondary}
+  color: ${(props) => props.theme.secondary};
+
+  @media (max-width: 768px) {
+    font-size: 0.5rem;
+  }
 `;
 
 const ItemButton = styled.button`
@@ -126,8 +145,9 @@ const ItemButton = styled.button`
   }
 
   @media (max-width: 768px) {
-    width: 60px;
-    height: 30px;
+    width: 50px;
+    height: 20px;
+    font-size: 1rem;
   }
 `;
 
@@ -143,7 +163,7 @@ const TotalPrice = styled.p`
   font-weight: 700;
 
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 `;
 
@@ -151,6 +171,12 @@ const Button = styled(ItemButton)`
   width: 100px;
   height: 40px;
   font-size: 1rem;
+
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 20px;
+    font-size: 0.5rem;
+  }
 `;
 
 const ButtonsWrapper = styled.div`
