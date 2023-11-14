@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Button from './Button';
+import Input from './Input';
 
 export default function Register() {
   return (
@@ -43,18 +44,4 @@ const Heading = styled.h1`
 const Txt = styled.p`
   font-size: 1rem;
   margin-bottom: 1rem;
-`;
-
-const Input = styled.input`
-  font-size: 1.5rem;
-  margin-bottom: 0.8rem;
-  width: 100%;
-  height: 50px;
-  border-radius: 10px;
-  border: none;
-  background-color: ${(props) => props.theme.primary};
-
-  &:focus {
-    outline: none;
-  }
 `;
