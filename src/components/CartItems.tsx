@@ -30,7 +30,10 @@ export default function CartItems() {
     <Wrapper>
       {cartItems.length === 0 && (
         <>
-          <EmptyBasket>Nie masz nic w koszu!</EmptyBasket>
+          <EmptyBasket>
+            Nie masz nic w koszu!
+            <Emoji>🌚</Emoji>
+          </EmptyBasket>
           <Login />
         </>
       )}
@@ -45,7 +48,9 @@ export default function CartItems() {
 
               return (
                 <Item key={item.id}>
-                  <Title>{item.name}</Title>
+                  <Title>
+                    {item.name}, ({item.form})
+                  </Title>
                   <ItemButton onClick={() => handleRemoveFromCart(item.id)}>
                     -
                   </ItemButton>
@@ -77,6 +82,12 @@ const EmptyBasket = styled.h1`
   @media (max-width: 768px) {
     font-size: 1rem;
   }
+`;
+
+const Emoji = styled.span`
+  display: block;
+  font-size: 4rem;
+  margin-top: 1rem;
 `;
 
 const ItemsWrapper = styled.div`

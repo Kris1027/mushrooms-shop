@@ -6,6 +6,7 @@ export type CartItem = {
   quantity: number;
   regularPrice: number;
   discount: number;
+  form: string;
 };
 
 type CartState = {
@@ -27,6 +28,7 @@ export const cartSlice = createSlice({
         name: string;
         regularPrice: number;
         discount: number;
+        form: string;
       }>
     ) {
       const itemIndex = state.items.findIndex(

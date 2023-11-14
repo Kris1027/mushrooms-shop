@@ -29,6 +29,7 @@ export default function Product({ prod }: ProductProps) {
         name: prod.name,
         regularPrice: prod.regularPrice,
         discount: prod.discount,
+        form: prod.form,
       })
     );
   }
