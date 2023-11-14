@@ -1,0 +1,36 @@
+import styled from 'styled-components';
+
+interface ButtonProps {
+  children: React.ReactNode;
+  onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
+}
+
+export default function Button({ children, onClick, type }: ButtonProps) {
+  return (
+    <StyledButton onClick={onClick} type={type}>
+      {children}
+    </StyledButton>
+  );
+}
+
+const StyledButton = styled.button`
+  font-size: 1.5rem;
+  padding: 0.6rem;
+  background-color: ${(props) => props.theme.third};
+  color: ${(props) => props.theme.primary};
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 700;
+
+  &:hover {
+    background-color: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.third};
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+`;

@@ -4,6 +4,7 @@ import { useCartDispatch, useCartSelector } from '../store/hooks';
 import { useNavigate } from 'react-router-dom';
 import Wrapper from './Wrapper';
 import Login from './Login';
+import Button from './Button';
 
 export default function CartItems() {
   const cartItems = useCartSelector((state) => state.cart.items);
@@ -164,18 +165,6 @@ const TotalPrice = styled.p`
 
   @media (max-width: 768px) {
     font-size: 1rem;
-  }
-`;
-
-const Button = styled(ItemButton)`
-  width: 100px;
-  height: 40px;
-  font-size: 1rem;
-
-  @media (max-width: 768px) {
-    width: 50px;
-    height: 20px;
-    font-size: 0.5rem;
   }
 `;
 

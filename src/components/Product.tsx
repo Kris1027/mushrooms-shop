@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../store/cartSlice';
 
 import styled from 'styled-components';
+import Button from './Button';
 
 export interface DataProps {
   id: number;
@@ -99,18 +100,4 @@ const Discount = styled.span`
   font-size: 0.7rem;
   color: ${(props) => props.theme.third};
   text-decoration: line-through;
-`;
-
-const Button = styled.button`
-  font-size: 1rem;
-  padding: 0.5rem;
-  background-color: ${(props) => props.theme.third};
-  color: ${(props) => props.theme.primary};
-  border-radius: 16px;
-  border: none;
-  cursor: pointer;
-
-  &:active {
-    transform: scale(0.9);
-  }
 `;

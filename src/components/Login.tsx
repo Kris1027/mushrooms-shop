@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from './Button';
 
 export default function Login() {
   return (
@@ -53,23 +54,5 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
-  }
-`;
-
-const Button = styled.button`
-  font-size: 1.5rem;
-  width: 100%;
-  height: 50px;
-  border-radius: 10px;
-  border: none;
-  background-color: ${(props) => props.theme.third};
-  cursor: pointer;
-
-  &:focus {
-    outline: none;
-  }
-
-  &:active {
-    transform: scale(1.1);
   }
 `;
