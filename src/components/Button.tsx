@@ -33,4 +33,9 @@ const StyledButton = styled.button`
   &:active {
     transform: scale(0.9);
   }
+
+  &:focus {
+    outline: none;
+    color: ${(props) => props.theme.secondary};
+  }
 `;

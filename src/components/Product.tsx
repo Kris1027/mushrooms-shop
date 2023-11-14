@@ -41,7 +41,7 @@ export default function Product({ prod }: ProductProps) {
     <Wrapper key={prod.id}>
       <Image style={{ backgroundImage: `url(${prod.image})` }} />
       <Title>
-        {prod.name} ({prod.form})
+        {prod.name} <Form>({prod.form})</Form>
       </Title>
       <PriceWrapper>
         <Price>{totalPrice} zł</Price>
@@ -76,6 +76,12 @@ const Image = styled.div`
   height: 100%;
   background-position: center;
   background-size: cover;
+  transition: 0.5s linear;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(200%);
+  }
 `;
 
 const Title = styled.h1`
@@ -83,6 +89,11 @@ const Title = styled.h1`
   font-weight: 700;
   padding: 0 2rem;
   color: ${(props) => props.theme.third};
+`;
+
+const Form = styled.span`
+  font-size: 1rem;
+  font-weight: 400;
 `;
 
 const PriceWrapper = styled.div`

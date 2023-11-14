@@ -49,7 +49,7 @@ export default function CartItems() {
               return (
                 <Item key={item.id}>
                   <Title>
-                    {item.name}, ({item.form})
+                    {item.name} <Form>({item.form})</Form>
                   </Title>
                   <ItemButton onClick={() => handleRemoveFromCart(item.id)}>
                     -
@@ -129,6 +129,11 @@ const Title = styled.h1`
   @media (max-width: 768px) {
     font-size: 1rem;
   }
+`;
+
+const Form = styled.span`
+  font-size: 1rem;
+  font-weight: 400;
 `;
 
 const Txt = styled.p`

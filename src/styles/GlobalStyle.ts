@@ -21,7 +21,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-
+	outline: none;
 }
 
 article, aside, details, figcaption, figure, 
