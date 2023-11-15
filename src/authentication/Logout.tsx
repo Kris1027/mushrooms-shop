@@ -18,7 +18,7 @@ export default function Logout() {
       <ButtonIcon onClick={() => navigate('/admin-dashboard')}>
         <GrUserAdmin />
       </ButtonIcon>
-      <ButtonIcon onClick={logout}>
+      <ButtonIcon onClick={() => logout()}>
         <HiArrowRightOnRectangle />
       </ButtonIcon>
     </>

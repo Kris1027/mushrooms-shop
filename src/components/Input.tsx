@@ -7,7 +7,6 @@ interface FormProps {
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   autoComplete?: string;
-  disabled: string;
 }
 
 export default function Input({

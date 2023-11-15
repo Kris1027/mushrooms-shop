@@ -1,9 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { type LoginProps, login as loginApi } from '../services/apiAuth';
 
 export function useLogin() {
-  const queryClient = useQueryClient();
   const navigate = useNavigate();
 
   const { mutate: login } = useMutation({
@@ -12,8 +11,7 @@ export function useLogin() {
         email,
         password,
       }),
-    onSuccess: (user) => {
-      queryClient.setQueriesData(['user'], user.user);
+    onSuccess: () => {
       navigate('/admin-dashboard', { replace: true });
     },
     onError: (err) => {

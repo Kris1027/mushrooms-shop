@@ -9,7 +9,7 @@ import { useLogin } from './useLogin';
 export default function LoginForm() {
   const [email, setEmail] = useState('admin@admin.com');
   const [password, setPassword] = useState('123456789');
-  const { login, isLoading } = useLogin();
+  const { login } = useLogin();
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -37,7 +37,6 @@ export default function LoginForm() {
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setEmail(e.target.value)
         }
-        disabled={isLoading}
       />
       <Input
         type='password'
@@ -45,11 +44,8 @@ export default function LoginForm() {
         value={password}
         placeholder='Hasło'
         onChange={(e) => setPassword(e.target.value)}
-        disabled={isLoading}
       />
-      <Button type='submit'>
-        {!isLoading ? 'Zaloguj się' : 'Ładowanie...'}
-      </Button>
+      <Button type='submit'>Zaloguj się</Button>
     </Wrapper>
   );
 }
