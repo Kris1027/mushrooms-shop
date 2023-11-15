@@ -6,20 +6,20 @@ export function useLogin() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
-  const { mutate: login, isLoading } = useMutation({
+  const { mutate: login } = useMutation({
     mutationFn: ({ email, password }: LoginProps) =>
       loginApi({
         email,
         password,
       }),
     onSuccess: (user) => {
-      queryClient.setQueriesData(['user'], user);
-      navigate('/admin-dashboard');
+      queryClient.setQueriesData(['user'], user.user);
+      navigate('/admin-dashboard', { replace: true });
     },
     onError: (err) => {
       console.log('ERROR', err);
     },
   });
 
-  return { login, isLoading };
+  return { login };
 }

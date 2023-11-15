@@ -8,6 +8,7 @@ import { type themeProps } from '../App';
 
 import Logo from './Logo';
 import Navigation from './Navigation';
+import Logout from '../authentication/Logout';
 
 interface HeaderProps {
   switchTheme: () => void;
@@ -29,6 +30,7 @@ export default function Header({ switchTheme, theme, dark }: HeaderProps) {
         {cartQuantity === 0 ? null : <Quantity>{cartQuantity}</Quantity>}
       </Basket>
       <div onClick={switchTheme}>{theme === dark ? <HiMoon /> : <HiSun />}</div>
+      <Logout />
     </HeaderWrapper>
   );
 }

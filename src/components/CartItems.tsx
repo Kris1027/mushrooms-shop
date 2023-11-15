@@ -7,11 +7,14 @@ import { useCartDispatch, useCartSelector } from '../store/hooks';
 import Wrapper from './Wrapper';
 import Button from './Button';
 import LoginForm from '../authentication/LoginForm';
+import { useUser } from '../authentication/useUser';
 
 export default function CartItems() {
   const cartItems = useCartSelector((state) => state.cart.items);
   const dispatch = useCartDispatch();
   const navi = useNavigate();
+
+  const { isAuthenicated } = useUser();
 
   const totalPrice = cartItems.reduce(
     (val, item) => val + (item.regularPrice - item.discount) * item.quantity,
@@ -36,7 +39,7 @@ export default function CartItems() {
             Nie masz nic w koszu!
             <Emoji>🌚</Emoji>
           </EmptyBasket>
-          <LoginForm />
+          {!isAuthenicated && <LoginForm />}
         </>
       )}
       {cartItems.length > 0 && (
