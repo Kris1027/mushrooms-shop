@@ -9,6 +9,7 @@ import User from './pages/User.tsx';
 import Home from './pages/Home.tsx';
 import Cart from './pages/Cart.tsx';
 import MobileNav from './components/MobileNav.tsx';
+import ProtectedRoute from './components/ProtectedRoute.tsx';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: '/nav',
         element: <MobileNav />,
+      },
+      {
+        path: '/admin-dashboard',
+        element: <ProtectedRoute />,
       },
     ],
   },

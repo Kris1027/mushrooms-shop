@@ -3,10 +3,31 @@ import styled from 'styled-components';
 interface FormProps {
   type?: string;
   placeholder?: string;
+  id?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  autoComplete?: string;
+  disabled: string;
 }
 
-export default function Input({ type, placeholder }: FormProps) {
-  return <StyledInput type={type} placeholder={placeholder} />;
+export default function Input({
+  type,
+  placeholder,
+  id,
+  value,
+  onChange,
+  autoComplete,
+}: FormProps) {
+  return (
+    <StyledInput
+      type={type}
+      placeholder={placeholder}
+      id={id}
+      value={value}
+      onChange={onChange}
+      autoComplete={autoComplete}
+    />
+  );
 }
 
 const StyledInput = styled.input`
@@ -29,5 +50,6 @@ const StyledInput = styled.input`
 
   &::placeholder {
     color: ${(props) => props.theme.secondary};
+    padding: 0.4rem;
   }
 `;

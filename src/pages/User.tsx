@@ -1,11 +1,11 @@
-import Login from '../components/Login';
-import Register from '../components/Register';
+import LoginForm from '../authentication/LoginForm';
+import Register from '../authentication/Register';
 import Wrapper from '../components/Wrapper';
 
 export default function User() {
   return (
     <Wrapper>
-      <Login />
+      <LoginForm />
       <Register />
     </Wrapper>
   );

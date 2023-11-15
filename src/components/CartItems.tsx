@@ -1,10 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+
 import { type CartItem, addToCart, removeFromCart } from '../store/cartSlice';
 import { useCartDispatch, useCartSelector } from '../store/hooks';
-import { useNavigate } from 'react-router-dom';
+
 import Wrapper from './Wrapper';
-import Login from './Login';
 import Button from './Button';
+import LoginForm from '../authentication/LoginForm';
 
 export default function CartItems() {
   const cartItems = useCartSelector((state) => state.cart.items);
@@ -34,7 +36,7 @@ export default function CartItems() {
             Nie masz nic w koszu!
             <Emoji>🌚</Emoji>
           </EmptyBasket>
-          <Login />
+          <LoginForm />
         </>
       )}
       {cartItems.length > 0 && (

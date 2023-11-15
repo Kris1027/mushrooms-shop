@@ -1,15 +1,20 @@
 import styled from 'styled-components';
-import Button from './Button';
-import Input from './Input';
+import Button from '../components/Button';
+import Input from '../components/Input';
 
-export default function Login() {
+export default function Register() {
   return (
     <Wrapper>
-      <Txt>Masz już konto?</Txt>
-      <Heading>Zaloguj się!</Heading>
-      <Input type='text' placeholder='Login' />
-      <Input type='text' placeholder='Hasło' />
-      <Button type='submit'>Zaloguj się</Button>
+      <Txt>Nie masz jeszcze konta?</Txt>
+      <Heading>Zarejestruj się!</Heading>
+      <Input type='text' placeholder='Imię' />
+      <Input type='text' placeholder='Nazwisko' />
+      <Input type='email' placeholder='Adres e-mail' />
+      <Input type='text' placeholder='Ulica' />
+      <Input type='text' placeholder='Kod pocztowy' />
+      <Input type='email' placeholder='Miasto' />
+      <Input type='number' placeholder='Telefon' />
+      <Button type='submit'>Utwórz konto</Button>
     </Wrapper>
   );
 }
@@ -18,9 +23,6 @@ const Wrapper = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 300px;
-  height: 400px;
   border-radius: 16px;
   padding: 2rem;
 
