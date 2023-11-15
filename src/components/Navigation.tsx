@@ -58,9 +58,9 @@ export default function Navigation() {
       label: 'Info',
     },
     {
-      to: '/user',
+      to: '/settings',
       Icon: HiUser,
-      label: 'Użytkownik',
+      label: 'Ustawienia',
     },
   ];
 

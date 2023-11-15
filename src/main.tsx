@@ -5,11 +5,11 @@ import App from './App.tsx';
 import Error from './pages/Error.tsx';
 import Info from './pages/Info.tsx';
 import Products from './pages/Products.tsx';
-import User from './pages/User.tsx';
 import Home from './pages/Home.tsx';
 import Cart from './pages/Cart.tsx';
 import MobileNav from './components/MobileNav.tsx';
 import ProtectedRoute from './components/ProtectedRoute.tsx';
+import Settings from './pages/Settings.tsx';
 
 const router = createBrowserRouter([
   {
@@ -22,8 +22,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/user',
-        element: <User />,
+        path: '/settings',
+        element: <Settings />,
       },
       {
         path: '/info',

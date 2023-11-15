@@ -56,13 +56,11 @@ export default function CartItems() {
                   <Title>
                     {item.name} <Form>({item.form})</Form>
                   </Title>
-                  <ItemButton onClick={() => handleRemoveFromCart(item.id)}>
+                  <Button onClick={() => handleRemoveFromCart(item.id)}>
                     -
-                  </ItemButton>
+                  </Button>
                   <Quantity>{item.quantity}</Quantity>
-                  <ItemButton onClick={() => handleAddToCart(item)}>
-                    +
-                  </ItemButton>
+                  <Button onClick={() => handleAddToCart(item)}>+</Button>
                   <Txt>({fotmattedPrice})</Txt>
                 </Item>
               );
@@ -149,33 +147,10 @@ const Txt = styled.p`
   }
 `;
 
-const ItemButton = styled.button`
-  font-size: 1.5rem;
-  width: 100px;
-  height: 50px;
-  border-radius: 10px;
-  border: none;
-  background-color: ${(props) => props.theme.primary};
-  cursor: pointer;
-
-  &:focus {
-    outline: none;
-  }
-
-  &:active {
-    transform: scale(1.1);
-  }
-
-  @media (max-width: 768px) {
-    width: 50px;
-    height: 20px;
-    font-size: 1rem;
-  }
-`;
-
 const Quantity = styled.span`
-  font-size: 1.3rem;
-  color: ${(props) => props.theme.third};
+  font-size: 2rem;
+  font-weight: 700;
+  color: ${(props) => props.theme.secondary};
   width: 40px;
 `;
 
