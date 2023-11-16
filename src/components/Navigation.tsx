@@ -3,7 +3,12 @@ import { useState, type FunctionComponent, useEffect } from 'react';
 
 import { IconType } from 'react-icons';
 import { GiMushroomGills } from 'react-icons/gi';
-import { HiBars3, HiInformationCircle, HiUser, HiXMark } from 'react-icons/hi2';
+import {
+  HiBars3,
+  HiInformationCircle,
+  HiMiniWrenchScrewdriver,
+  HiXMark,
+} from 'react-icons/hi2';
 import { styled } from 'styled-components';
 
 interface NavLinkItemsProps {
@@ -59,7 +64,7 @@ export default function Navigation() {
     },
     {
       to: '/settings',
-      Icon: HiUser,
+      Icon: HiMiniWrenchScrewdriver,
       label: 'Ustawienia',
     },
   ];
