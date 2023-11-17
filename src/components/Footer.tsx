@@ -43,6 +43,7 @@ const Wrapper = styled.footer`
   align-items: center;
   gap: 0.7rem;
   flex-wrap: wrap;
+  margin-top: 2rem;
 
   @media (max-width: 768px) {
     gap: 0.3rem;
