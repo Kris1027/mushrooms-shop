@@ -1,34 +1,46 @@
+import styled from 'styled-components';
 import Button from './Button';
 import Input from './Input';
 
 export default function UserSettings() {
   return (
-    <form>
-      <label>
+    <Form>
+      <Label>
         Zmień imię i nazwisko
         <Input type='text' placeholder='Imię i nazwisko' />
-      </label>
-      <label>
+      </Label>
+      <Label>
         Zmień ulicę i numer domu/mieszkania
         <Input type='text' placeholder='Ulica i nr' />
-      </label>
-      <label>
+      </Label>
+      <Label>
         Zmień kod pocztowy
         <Input type='text' placeholder='Kod pocztowy' />
-      </label>
-      <label>
+      </Label>
+      <Label>
         Zmień miasto
         <Input type='text' placeholder='Miasto' />
-      </label>
-      <label>
+      </Label>
+      <Label>
         Zmień adres e-mail
         <Input type='text' placeholder='Adres e-mail' />
-      </label>
-      <label>
+      </Label>
+      <Label>
         Zmień numer telefonu
         <Input type='text' placeholder='Telefon' />
-      </label>
+      </Label>
       <Button>Zatwierdź</Button>
-    </form>
+    </Form>
   );
 }
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+`;
+
+const Label = styled.label`
+  font-weight: 700;
+`;
