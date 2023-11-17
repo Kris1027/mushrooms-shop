@@ -16,13 +16,12 @@ export default function Button({ children, onClick, type }: ButtonProps) {
 
 const StyledButton = styled.button`
   font-size: 1.5rem;
-  padding: 0.6rem;
+  padding: 0.6rem 2rem;
   background-color: ${(props) => props.theme.third};
   color: ${(props) => props.theme.primary};
   border-radius: 16px;
   border: none;
   cursor: pointer;
-  width: 100%;
   font-weight: 700;
 
   &:hover {

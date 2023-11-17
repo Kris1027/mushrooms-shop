@@ -1,11 +1,15 @@
-import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+
+import styled from 'styled-components';
 import Button from '../components/Button';
 import Input from '../components/Input';
-import Wrapper from '../components/Wrapper';
+import { useQuery } from '@tanstack/react-query';
 import { getProducts } from '../services/apiProducts';
 import Spinner from '../components/Spinner';
 
 export default function AdminDashboard() {
+  const [board, setBoard] = useState(1);
+
   const {
     isLoading,
     data: products,
@@ -20,30 +24,84 @@ export default function AdminDashboard() {
 
   return (
     <Wrapper>
-      <form>
-        <label htmlFor='id'>Unikatowy numer indentyfikacyjny</label>
-        <Input id='id' type='text' placeholder='ID' />
-        <label htmlFor='name'>Nazwa produktu</label>
-        <Input id='name' type='text' placeholder='Name' />
-        <label htmlFor='rp'>Cena bez zniżki</label>
-        <Input id='rp' type='text' placeholder='RegularPrice' />
-        <label htmlFor='dc'>Zniżka</label>
-        <Input id='dc' type='text' placeholder='Discount' />
-        <label htmlFor='txt'>Opis produktu</label>
-        <Input id='txt' type='text' placeholder='Description' />
-        <label htmlFor='img'>Dodaj zdjęcie</label>
-        <Input id='img' type='file' placeholder='Image' />
-        <Button>Dodaj Produkt</Button>
-      </form>
-      <div>
-        <p>Wszystkie produkty:</p>
-        {products?.map((prod) => (
-          <div key={prod.id}>
-            {prod.name}({prod.form})<Button>Edytuj</Button>
-            <Button>Usuń</Button>
-          </div>
-        ))}
-      </div>
+      <Dashboard>
+        <DashboardHeading>Panel Admina</DashboardHeading>
+        <Button onClick={() => setBoard(1)}>Dodaj produkt</Button>
+        <Button onClick={() => setBoard(2)}>Edytuj/Usuń produkt</Button>
+      </Dashboard>
+      <Board>
+        {board === 1 && (
+          <>
+            <BoardHeading>Dodaj produkt</BoardHeading>
+            <form>
+              <Input type='text' placeholder='ID' />
+              <Input type='text' placeholder='Nazwa' />
+              <Input type='text' placeholder='Cena Podstawowa' />
+              <Input type='text' placeholder='Zniżka' />
+              <Input type='text' placeholder='Forma' />
+              <Input type='text' placeholder='Opis' />
+              <Input type='file' placeholder='Zdjęcie' />
+              <Button type='submit'>Dodaj</Button>
+            </form>
+          </>
+        )}
+        {board === 2 && (
+          <>
+            <BoardHeading>Edytuj/Usuń produkt</BoardHeading>
+            {products?.map((prod) => (
+              <Product key={prod.id}>
+                {prod.name}, {prod.form}
+                <Button>Edytuj</Button>
+                <Button>Usuń</Button>
+              </Product>
+            ))}
+          </>
+        )}
+      </Board>
     </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  gap: 1rem;
+`;
+
+const Dashboard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  flex-grow: 1;
+
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+`;
+const Board = styled.section`
+  display: flex;
+  flex-direction: column;
+  flex-basis: 60%;
+  align-items: flex-end;
+
+  gap: 1rem;
+`;
+
+const Product = styled.div`
+  display: flex;
+  gap: 0.5rem;
+`;
+
+const DashboardHeading = styled.h1`
+  font-size: 2rem;
+`;
+
+const BoardHeading = styled.h2`
+  font-size: 2rem;
+  color: ${(props) => props.theme.third};
+`;
