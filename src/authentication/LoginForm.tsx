@@ -59,6 +59,7 @@ const Wrapper = styled.form`
   height: 400px;
   border-radius: 16px;
   padding: 2rem;
+  gap: 0.7rem;
 
   background: rgba(255, 255, 255, 0.1);
   border-radius: 16px;
