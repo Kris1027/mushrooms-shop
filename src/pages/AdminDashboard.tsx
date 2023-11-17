@@ -33,7 +33,7 @@ export default function AdminDashboard() {
         {board === 1 && (
           <>
             <BoardHeading>Dodaj produkt</BoardHeading>
-            <form>
+            <Form>
               <Input type='text' placeholder='ID' />
               <Input type='text' placeholder='Nazwa' />
               <Input type='text' placeholder='Cena Podstawowa' />
@@ -42,7 +42,7 @@ export default function AdminDashboard() {
               <Input type='text' placeholder='Opis' />
               <Input type='file' placeholder='Zdjęcie' />
               <Button type='submit'>Dodaj</Button>
-            </form>
+            </Form>
           </>
         )}
         {board === 2 && (
@@ -66,7 +66,7 @@ const Wrapper = styled.div`
   display: flex;
   width: 80%;
   margin: 0 auto;
-  gap: 1rem;
+  min-height: 80vh;
 `;
 
 const Dashboard = styled.div`
@@ -88,13 +88,20 @@ const Board = styled.section`
   flex-direction: column;
   flex-basis: 60%;
   align-items: flex-end;
-
   gap: 1rem;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.5rem;
 `;
 
 const Product = styled.div`
   display: flex;
   gap: 0.5rem;
+  align-items: center;
 `;
 
 const DashboardHeading = styled.h1`

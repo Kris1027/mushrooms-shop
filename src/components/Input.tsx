@@ -31,11 +31,9 @@ export default function Input({
 
 const StyledInput = styled.input`
   font-size: 1.5rem;
-  width: 100%;
-  height: 50px;
   border-radius: 10px;
   border: none;
-  margin-bottom: 0.7rem;
+  padding: 0.6rem 2rem;
   background-color: ${(props) => props.theme.primary};
 
   &:focus {
