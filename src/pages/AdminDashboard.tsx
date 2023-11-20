@@ -2,36 +2,11 @@ import { useState } from 'react';
 
 import styled from 'styled-components';
 import Button from '../components/Button';
-import Input from '../components/Input';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { deleteProduct, getProducts } from '../services/apiProducts';
-import Spinner from '../components/Spinner';
+import ProductForm from '../components/ProductForm';
+import EditDeleteProduct from '../components/EditDeleteProduct';
 
 export default function AdminDashboard() {
   const [board, setBoard] = useState(1);
-
-  const queryClient = useQueryClient();
-
-  const {
-    isLoading,
-    data: products,
-    error,
-  } = useQuery({
-    queryKey: ['products'],
-    queryFn: getProducts,
-  });
-
-  const { mutate } = useMutation({
-    mutationFn: deleteProduct,
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ['products'],
-      });
-    },
-  });
-
-  if (isLoading) return <Spinner />;
-  if (error) return <p>{error.message}</p>;
 
   return (
     <Wrapper>
@@ -44,28 +19,13 @@ export default function AdminDashboard() {
         {board === 1 && (
           <>
             <BoardHeading>Dodaj produkt</BoardHeading>
-            <Form>
-              <Input type='text' placeholder='ID' />
-              <Input type='text' placeholder='Nazwa' />
-              <Input type='text' placeholder='Cena Podstawowa' />
-              <Input type='text' placeholder='Zniżka' />
-              <Input type='text' placeholder='Forma' />
-              <Input type='text' placeholder='Opis' />
-              <Input type='file' placeholder='Zdjęcie' />
-              <Button type='submit'>Dodaj</Button>
-            </Form>
+            <ProductForm />
           </>
         )}
         {board === 2 && (
           <>
             <BoardHeading>Edytuj/Usuń produkt</BoardHeading>
-            {products?.map((prod) => (
-              <Product key={prod.id}>
-                {prod.name}, {prod.form}
-                <Button>Edytuj</Button>
-                <Button onClick={() => mutate(prod.id)}>Usuń</Button>
-              </Product>
-            ))}
+            <EditDeleteProduct />
           </>
         )}
       </Board>
@@ -100,19 +60,6 @@ const Board = styled.section`
   flex-basis: 60%;
   align-items: flex-end;
   gap: 1rem;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  gap: 0.5rem;
-`;
-
-const Product = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
 `;
 
 const DashboardHeading = styled.h1`
