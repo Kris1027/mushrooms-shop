@@ -3,20 +3,31 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../components/Button';
 import Input from '../components/Input';
-import { useQuery } from '@tanstack/react-query';
-import { getProducts } from '../services/apiProducts';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { deleteProduct, getProducts } from '../services/apiProducts';
 import Spinner from '../components/Spinner';
 
 export default function AdminDashboard() {
   const [board, setBoard] = useState(1);
+
+  const queryClient = useQueryClient();
 
   const {
     isLoading,
     data: products,
     error,
   } = useQuery({
-    queryKey: ['product'],
+    queryKey: ['products'],
     queryFn: getProducts,
+  });
+
+  const { mutate } = useMutation({
+    mutationFn: deleteProduct,
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ['products'],
+      });
+    },
   });
 
   if (isLoading) return <Spinner />;
@@ -52,7 +63,7 @@ export default function AdminDashboard() {
               <Product key={prod.id}>
                 {prod.name}, {prod.form}
                 <Button>Edytuj</Button>
-                <Button>Usuń</Button>
+                <Button onClick={() => mutate(prod.id)}>Usuń</Button>
               </Product>
             ))}
           </>
