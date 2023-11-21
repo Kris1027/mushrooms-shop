@@ -18,7 +18,7 @@ export default function ProductForm() {
   });
 
   function onSubmit(data: DataProps) {
-    mutate(data);
+    mutate({ ...data, image: data.image[0] });
     reset();
   }
 
@@ -45,8 +45,9 @@ export default function ProductForm() {
       />
       <input type='text' id='form' placeholder='Forma' {...register('form')} />
       <input
-        type='text'
+        type='file'
         id='image'
+        accept='image/*'
         placeholder='Zdjęcie'
         {...register('image')}
       />

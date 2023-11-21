@@ -8,7 +8,7 @@ export interface DataProps {
   id: number;
   name: string;
   quantity: number;
-  image?: string;
+  image: string;
   regularPrice: number;
   discount: number;
   description?: string;
