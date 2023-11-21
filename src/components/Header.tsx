@@ -4,7 +4,7 @@ import { useCartSelector } from '../store/hooks';
 import styled from 'styled-components';
 import { HiMoon, HiShoppingCart, HiSun } from 'react-icons/hi2';
 
-import { type themeProps } from '../App';
+import { type themeProps } from '../styles/GlobalStyle';
 
 import Logo from './Logo';
 import Navigation from './Navigation';
