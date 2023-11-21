@@ -1,5 +1,29 @@
 import { createGlobalStyle } from 'styled-components';
 
+export interface themeProps {
+  primary: string;
+  secondary: string;
+  color: string;
+  third: string;
+  appBG: string;
+}
+
+export const darkTheme: themeProps = {
+  secondary: '#0C7C59',
+  third: '#D64933',
+  primary: '#BAC1B8',
+  color: '#58A4B0',
+  appBG: '#020202',
+};
+
+export const lightTheme: themeProps = {
+  primary: '#FFECD1',
+  secondary: '#FF7D00',
+  third: '#15616D',
+  color: '#78290F',
+  appBG: '#FFEEDB',
+};
+
 const GlobalStyle = createGlobalStyle`
 
 html, body, div, span, applet, object, iframe,
