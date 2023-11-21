@@ -8,5 +8,6 @@
 - React Redux
 - React Query
 - React Icons
+- React-Hook-Form
 - Supabase
 - Styled Components

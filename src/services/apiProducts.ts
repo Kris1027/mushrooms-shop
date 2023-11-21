@@ -12,6 +12,17 @@ export async function getProducts() {
   return data;
 }
 
+export async function createProduct(newProduct: DataProps) {
+  const { data, error } = await supabase.from('products').insert([newProduct]);
+
+  if (error) {
+    console.error(error);
+    throw new Error('Products could not be created');
+  }
+
+  return data;
+}
+
 export async function deleteProduct(id: DataProps) {
   const { data, error } = await supabase.from('products').delete().eq('id', id);
 
