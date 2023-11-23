@@ -4,7 +4,7 @@ import { addToCart } from '../store/cartSlice';
 import styled from 'styled-components';
 import Button from './Button';
 
-export interface DataProps {
+export type DataProps = {
   id: number;
   name: string;
   quantity: number;
@@ -13,11 +13,11 @@ export interface DataProps {
   discount: number;
   description?: string;
   form: string;
-}
+};
 
-interface ProductProps {
+type ProductProps = {
   prod: DataProps;
-}
+};
 
 export default function Product({ prod }: ProductProps) {
   const dispatch = useDispatch();

@@ -29,7 +29,7 @@ export async function createProduct(newProduct: DataProps) {
     throw new Error('Products could not be created');
   }
 
-  const { erorr: storageError } = await supabase.storage
+  const { error: storageError } = await supabase.storage
     .from('product-images')
     .upload(imageName, newProduct.image);
 
