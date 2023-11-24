@@ -3,7 +3,7 @@ import { type FunctionComponent } from 'react';
 
 import { IconType } from 'react-icons';
 import { GiMushroomGills } from 'react-icons/gi';
-import { HiInformationCircle, HiMiniWrenchScrewdriver } from 'react-icons/hi2';
+import { HiInformationCircle } from 'react-icons/hi2';
 import { styled } from 'styled-components';
 
 interface NavLinkItemsProps {
@@ -33,11 +33,6 @@ const navLinks: NavLinkItemsProps[] = [
     to: '/info',
     Icon: HiInformationCircle,
     label: 'Info',
-  },
-  {
-    to: '/settings',
-    Icon: HiMiniWrenchScrewdriver,
-    label: 'Ustawienia',
   },
 ];
 export default function MobileNav() {
