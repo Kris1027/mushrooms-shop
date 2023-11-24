@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import styled from 'styled-components';
 import Button from '../components/Button';
-import ProductForm from '../components/ProductForm';
 import EditDeleteProduct from '../components/EditDeleteProduct';
 
 export default function AdminDashboard() {
@@ -19,7 +18,6 @@ export default function AdminDashboard() {
         {board === 1 && (
           <>
             <BoardHeading>Dodaj produkt</BoardHeading>
-            <ProductForm />
           </>
         )}
         {board === 2 && (
