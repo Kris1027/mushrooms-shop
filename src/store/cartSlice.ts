@@ -52,7 +52,10 @@ export const cartSlice = createSlice({
         state.items[itemIndex].quantity--;
       }
     },
+    resetCart(state) {
+      state.items = [];
+    },
   },
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, resetCart } = cartSlice.actions;

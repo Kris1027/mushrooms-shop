@@ -1,7 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { type CartItem, addToCart, removeFromCart } from '../store/cartSlice';
+import {
+  type CartItem,
+  addToCart,
+  removeFromCart,
+  resetCart,
+} from '../store/cartSlice';
 import { useCartDispatch, useCartSelector } from '../store/hooks';
 
 import Wrapper from './Wrapper';
@@ -63,7 +68,7 @@ export default function CartItems() {
           </ItemsList>
           <ButtonsWrapper>
             <Button onClick={() => navi(-1)}>Wróć</Button>
-            <Button>Usuń wszystko</Button>
+            <Button onClick={() => dispatch(resetCart())}>Usuń wszystko</Button>
             <Button>Płatność</Button>
             <TotalPrice>Całkowity koszt {formattedTotalPrice} zł</TotalPrice>
           </ButtonsWrapper>
