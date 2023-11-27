@@ -37,4 +37,9 @@ const StyledButton = styled.button`
     outline: none;
     color: ${(props) => props.theme.secondary};
   }
+
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+    padding: 0.6rem 1rem;
+  }
 `;

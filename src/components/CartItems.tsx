@@ -101,8 +101,8 @@ const ItemsWrapper = styled.div`
 const ItemsList = styled.ul`
   display: flex;
   flex-direction: column;
-  align-items: end;
   gap: 2rem;
+  align-content: center;
 
   @media (max-width: 768px) {
     gap: 1rem;
@@ -123,22 +123,25 @@ const Item = styled.li`
 const Title = styled.h1`
   font-size: 2rem;
   font-weight: 700;
+  width: 50%;
 
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
 `;
 
 const Form = styled.span`
-  font-size: 1rem;
+  font-size: 0.7rem;
   font-weight: 400;
 `;
 
 const Txt = styled.p`
   color: ${(props) => props.theme.secondary};
+  width: 60px;
 
   @media (max-width: 768px) {
     font-size: 0.5rem;
+    width: 40px;
   }
 `;
 
@@ -147,6 +150,10 @@ const Quantity = styled.span`
   font-weight: 700;
   color: ${(props) => props.theme.secondary};
   width: 40px;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const TotalPrice = styled.p`
