@@ -1,11 +1,16 @@
-import { useCartSelector } from '../store/hooks';
-import Button from './Button';
+import { resetCart } from '../store/cartSlice';
+import { useCartDispatch, useCartSelector } from '../store/hooks';
+import Button from '../components/Button';
+import Wrapper from '../components/Wrapper';
+import { useNavigate } from 'react-router-dom';
 
 export default function Summary() {
+  const navi = useNavigate();
+  const dispatch = useCartDispatch();
   const cartItems = useCartSelector((state) => state.cart.items);
 
   const orderedProducts = cartItems
-    .map((item) => `${item.name}, ${item.form} - x${item.quantity}`)
+    .map((item) => `${item.name}, ${item.form} - ${item.quantity} szt`)
     .join('\n');
 
   const totalPrice = cartItems.reduce(
@@ -23,20 +28,20 @@ export default function Summary() {
     const body = encodeURIComponent(
       `${orderedProducts}
       \nDo zapłaty: ${finalPrice} zł
-      \n DANE DO WYSYŁKI: (proszę wypełnić)
-      \n Imię i nazwisko: 
-      \n Ulica i nr domu/mieszkania: 
-      \n Kod pocztowy: 
-      \n Miasto: 
+      \nDANE DO WYSYŁKI: (proszę wypełnić)
+      \nImię i nazwisko: 
+      \nUlica i nr domu/mieszkania: 
+      \nKod pocztowy: 
+      \nMiasto: 
       \n
-      \n DANE DO PRZELEWU:
-      \n ${import.meta.env.VITE_NAME}
-      \n nr konta: ${import.meta.env.VITE_BANK_ACCOUNT}
-      \n blik: ${import.meta.env.VITE_BLIK}
+      \nDANE DO PRZELEWU:
+      \n${import.meta.env.VITE_NAME}
+      \nnr konta: ${import.meta.env.VITE_BANK_ACCOUNT}
+      \nblik: ${import.meta.env.VITE_BLIK}
       \n
       \n 
-      \n W tytule przelewu proszę podać numer zamówienia który jest podany w tytule tego maila!
-      \n Po udanej wpłacie wyślemy potwierdzenie zamówienia`
+      \nW tytule przelewu proszę podać numer zamówienia który jest podany w tytule tego maila!
+      \nPo udanej wpłacie wyślemy potwierdzenie zamówienia`
     );
 
     const mailTo = `mailto:${
@@ -44,22 +49,25 @@ export default function Summary() {
     }?subject=${subject}&body=${body}`;
 
     window.location.href = mailTo;
+
+    dispatch(resetCart());
+    navi('/cart/finish-order');
   };
 
   return (
-    <div>
+    <Wrapper>
       <h1>Zamówione produkty</h1>
       {cartItems.map((item) => (
         <p>
           <span>{item.name}, </span>
           <span>{item.form}</span>
-          <span> - x{item.quantity}</span>
+          <span> - {item.quantity} szt</span>
         </p>
       ))}
       <p>Produkty: {formattedTotalPrice} zł</p>
       <p>Przesyłka: {deliveryCost} zł</p>
       <p>Razem: {finalPrice} zł</p>
       <Button onClick={handleBuyMail}>Kupuję!</Button>
-    </div>
+    </Wrapper>
   );
 }

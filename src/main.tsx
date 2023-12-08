@@ -7,8 +7,9 @@ import Info from './pages/Info.tsx';
 import Products from './pages/Products.tsx';
 import Home from './pages/Home.tsx';
 import MobileNav from './components/MobileNav.tsx';
-import Summary from './components/Summary.tsx';
+import Summary from './pages/Summary.tsx';
 import Cart from './pages/Cart.tsx';
+import FinishOrder from './pages/FinishOrder.tsx';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: '/cart/summary',
         element: <Summary />,
+      },
+      {
+        path: '/cart/finish-order',
+        element: <FinishOrder />,
       },
       {
         path: '/nav',
