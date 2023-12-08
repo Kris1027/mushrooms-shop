@@ -6,8 +6,9 @@ import Error from './pages/Error.tsx';
 import Info from './pages/Info.tsx';
 import Products from './pages/Products.tsx';
 import Home from './pages/Home.tsx';
-import Cart from './pages/Cart.tsx';
 import MobileNav from './components/MobileNav.tsx';
+import Summary from './components/Summary.tsx';
+import Cart from './pages/Cart.tsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: '/cart',
         element: <Cart />,
+      },
+      {
+        path: '/cart/summary',
+        element: <Summary />,
       },
       {
         path: '/nav',
