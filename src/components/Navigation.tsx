@@ -4,6 +4,7 @@ import { useState, type FunctionComponent, useEffect } from 'react';
 import { IconType } from 'react-icons';
 import { GiMushroomGills } from 'react-icons/gi';
 import { HiBars3, HiInformationCircle, HiXMark } from 'react-icons/hi2';
+import { CiMail } from 'react-icons/ci';
 import { styled } from 'styled-components';
 
 interface NavLinkItemsProps {
@@ -50,12 +51,17 @@ export default function Navigation() {
     {
       to: '/products',
       Icon: GiMushroomGills,
-      label: 'Grzyby',
+      label: 'Produkty',
     },
     {
       to: '/info',
       Icon: HiInformationCircle,
       label: 'Info',
+    },
+    {
+      to: '/contact',
+      Icon: CiMail,
+      label: 'Kontakt',
     },
   ];
 
