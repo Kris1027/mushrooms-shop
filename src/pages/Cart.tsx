@@ -56,11 +56,13 @@ function Cart() {
                   <Title>
                     {item.name} <Form>({item.form})</Form>
                   </Title>
-                  <Button onClick={() => handleRemoveFromCart(item.id)}>
-                    -
-                  </Button>
-                  <Quantity>{item.quantity}</Quantity>
-                  <Button onClick={() => handleAddToCart(item)}>+</Button>
+                  <div>
+                    <Button onClick={() => handleRemoveFromCart(item.id)}>
+                      -
+                    </Button>
+                    <Quantity>{item.quantity}</Quantity>
+                    <Button onClick={() => handleAddToCart(item)}>+</Button>
+                  </div>
                   <Txt>({fotmattedPrice})</Txt>
                 </Item>
               );
@@ -69,7 +71,7 @@ function Cart() {
           <ButtonsWrapper>
             <Button onClick={() => navi(-1)}>Wróć</Button>
             <Button onClick={() => dispatch(resetCart())}>Usuń wszystko</Button>
-            <Link to='/cart/summary'>Podsumowanie</Link>
+            <StyledSummary to='/cart/summary'>Podsumowanie</StyledSummary>
             <TotalPrice>Całkowity koszt {formattedTotalPrice} zł</TotalPrice>
           </ButtonsWrapper>
         </ItemsWrapper>
@@ -81,6 +83,7 @@ function Cart() {
 export default Cart;
 
 const EmptyBasket = styled.h1`
+  text-align: center;
   font-size: 2rem;
   color: ${(props) => props.theme.third};
 
@@ -155,8 +158,8 @@ const Txt = styled.p`
 const Quantity = styled.span`
   font-size: 2rem;
   font-weight: 700;
+  padding: 1rem;
   color: ${(props) => props.theme.secondary};
-  width: 40px;
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
@@ -179,5 +182,36 @@ const ButtonsWrapper = styled.div`
 
   @media (max-width: 768px) {
     gap: 0.5rem;
+  }
+`;
+
+const StyledSummary = styled(Link)`
+  font-size: 1.5rem;
+  padding: 0.6rem 2rem;
+  background-color: ${(props) => props.theme.third};
+  color: ${(props) => props.theme.primary};
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    background-color: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.third};
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &:focus {
+    outline: none;
+    color: ${(props) => props.theme.secondary};
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+    padding: 0.6rem 1rem;
   }
 `;

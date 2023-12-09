@@ -25,17 +25,27 @@ export default function Info() {
 
   return (
     <Wrapper>
-      {filteredProducts?.map((prod) => (
-        <div key={prod.id}>
-          <Title>{prod.name}</Title>
-          <Text>{prod.description}</Text>
-        </div>
-      ))}
+      <InfoContainer>
+        {filteredProducts?.map((prod) => (
+          <div key={prod.id}>
+            <Title>{prod.name}</Title>
+            <Text>{prod.description}</Text>
+          </div>
+        ))}
+      </InfoContainer>
     </Wrapper>
   );
 }
 
+const InfoContainer = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  text-align: center;
+`;
+
 const Title = styled.h1`
+  padding-bottom: 1rem;
   font-size: 2rem;
   color: ${(props) => props.theme.third};
 `;

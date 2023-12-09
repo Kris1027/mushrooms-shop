@@ -5,6 +5,7 @@ import { getProducts } from '../services/apiProducts';
 import Wrapper from '../components/Wrapper';
 import Product from '../components/Product';
 import Spinner from '../components/Spinner';
+import styled from 'styled-components';
 
 export default function Products() {
   const {
@@ -20,9 +21,18 @@ export default function Products() {
   if (error) return <p>{error.message}</p>;
   return (
     <Wrapper>
-      {products?.map((prod) => (
-        <Product prod={prod} key={prod.id} />
-      ))}
+      <ProductsContainer>
+        {products?.map((prod) => (
+          <Product prod={prod} key={prod.id} />
+        ))}
+      </ProductsContainer>
     </Wrapper>
   );
 }
+
+const ProductsContainer = styled.section`
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+`;

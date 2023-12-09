@@ -40,9 +40,8 @@ export default function Product({ prod }: ProductProps) {
   return (
     <Wrapper key={prod.id}>
       <Image style={{ backgroundImage: `url(${prod.image})` }} />
-      <Title>
-        {prod.name} <Form>({prod.form})</Form>
-      </Title>
+      <Title>{prod.name}</Title>
+      <Form>({prod.form})</Form>
       <PriceWrapper>
         <Price>{totalPrice} zł</Price>
         <Discount>
@@ -60,6 +59,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  align-items: center;
   border-radius: 16px;
   overflow: hidden;
   width: 350px;
@@ -88,6 +88,7 @@ const Title = styled.h1`
   font-size: 1.5rem;
   font-weight: 700;
   padding: 0 2rem;
+  text-align: center;
   color: ${(props) => props.theme.third};
 `;
 

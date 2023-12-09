@@ -3,6 +3,7 @@ import { useCartDispatch, useCartSelector } from '../store/hooks';
 import Button from '../components/Button';
 import Wrapper from '../components/Wrapper';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 export default function Summary() {
   const navi = useNavigate();
@@ -56,18 +57,60 @@ export default function Summary() {
 
   return (
     <Wrapper>
-      <h1>Zamówione produkty</h1>
-      {cartItems.map((item) => (
-        <p>
-          <span>{item.name}, </span>
-          <span>{item.form}</span>
-          <span> - {item.quantity} szt</span>
-        </p>
-      ))}
-      <p>Produkty: {formattedTotalPrice} zł</p>
-      <p>Przesyłka: {deliveryCost} zł</p>
-      <p>Razem: {finalPrice} zł</p>
-      <Button onClick={handleBuyMail}>Kupuję!</Button>
+      <Container>
+        <Title>Zamówione produkty</Title>
+        {cartItems.map((item) => (
+          <TxtProd>
+            <span>{item.name}, </span>
+            <span>{item.form}</span>
+            <span> - {item.quantity} szt</span>
+          </TxtProd>
+        ))}
+        <TxtPrice>
+          Produkty: <Price>{formattedTotalPrice} zł</Price>
+          Przesyłka: <Price>{deliveryCost} zł</Price>
+          Razem: <Price>{finalPrice} zł</Price>
+        </TxtPrice>
+        <Button onClick={() => navi(-1)}>Wróć</Button>
+        <Button onClick={handleBuyMail}>Kupuję!</Button>
+      </Container>
     </Wrapper>
   );
 }
+
+const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+`;
+
+const Title = styled.h1`
+  font-size: 3rem;
+  font-weight: 700;
+
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+  }
+`;
+
+const TxtProd = styled.p`
+  font-size: 2rem;
+  color: ${(props) => props.theme.primary};
+
+  @media (max-width: 768px) {
+    font-size: 0.5rem;
+  }
+`;
+
+const TxtPrice = styled.p`
+  display: flex;
+  gap: 1rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+`;
+
+const Price = styled.span`
+  color: ${(props) => props.theme.third};
+`;
