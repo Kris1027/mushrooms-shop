@@ -19,16 +19,18 @@ export default function Summary() {
     0
   );
 
-  const formattedTotalPrice = totalPrice.toFixed(2);
   const deliveryCost = 20;
-  const orderNr = Math.floor(Math.random() * 10000000);
   const finalPrice = totalPrice + deliveryCost;
+  const formattedTotalPrice = totalPrice.toFixed(2);
+  const formattedDeliveryCost = deliveryCost.toFixed(2);
+  const formattedFinalPrice = finalPrice.toFixed(2);
+  const orderNr = Math.floor(Math.random() * 10000000);
 
   const handleBuyMail = () => {
     const subject = encodeURIComponent(`Zamównienie nr: ${orderNr}`);
     const body = encodeURIComponent(
       `${orderedProducts}
-      \nDo zapłaty: ${finalPrice} zł
+      \nDo zapłaty: ${formattedFinalPrice} zł
       \nDANE DO WYSYŁKI: (proszę wypełnić)
       \nImię i nazwisko: 
       \nUlica i nr domu/mieszkania: 
@@ -68,8 +70,8 @@ export default function Summary() {
         ))}
         <TxtPrice>
           Produkty: <Price>{formattedTotalPrice} zł</Price>
-          Przesyłka: <Price>{deliveryCost} zł</Price>
-          Razem: <Price>{finalPrice} zł</Price>
+          Przesyłka: <Price>{formattedDeliveryCost} zł</Price>
+          Razem: <Price>{formattedFinalPrice} zł</Price>
         </TxtPrice>
         <Button onClick={() => navi(-1)}>Wróć</Button>
         <Button onClick={handleBuyMail}>Kupuję!</Button>
