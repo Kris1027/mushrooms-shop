@@ -5,6 +5,8 @@ import { IconType } from 'react-icons';
 import { GiMushroomGills } from 'react-icons/gi';
 import { HiInformationCircle } from 'react-icons/hi2';
 import { styled } from 'styled-components';
+import { CiMail } from 'react-icons/ci';
+import { FaQuestionCircle } from 'react-icons/fa';
 
 interface NavLinkItemsProps {
   to: string;
@@ -33,6 +35,16 @@ const navLinks: NavLinkItemsProps[] = [
     to: '/info',
     Icon: HiInformationCircle,
     label: 'Info',
+  },
+  {
+    to: '/contact',
+    Icon: CiMail,
+    label: 'Kontakt',
+  },
+  {
+    to: '/faq',
+    Icon: FaQuestionCircle,
+    label: 'FAQ',
   },
 ];
 export default function MobileNav() {

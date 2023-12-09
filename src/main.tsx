@@ -11,6 +11,7 @@ import Summary from './pages/Summary.tsx';
 import Cart from './pages/Cart.tsx';
 import FinishOrder from './pages/FinishOrder.tsx';
 import Contact from './pages/Contact.tsx';
+import Faq from './pages/Faq.tsx';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/products',
         element: <Products />,
+      },
+      {
+        path: '/faq',
+        element: <Faq />,
       },
       {
         path: '/cart',

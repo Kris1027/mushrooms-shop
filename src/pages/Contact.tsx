@@ -6,12 +6,16 @@ export default function Contact() {
     <Wrapper>
       <Title>Masz jakieś pytania?</Title>
       <Txt>Skontaktuj sie z nami poprzez e-mail</Txt>
-      <Email>adres@email.com</Email>
+      <Email>{import.meta.env.VITE_EMAIL_ADRESS}</Email>
+      <Title>Bank</Title>
+      <Txt>{import.meta.env.VITE_NAME}</Txt>
+      <Txt>nr konta: {import.meta.env.VITE_BANK_ACCOUNT}</Txt>
+      <Txt>blik: {import.meta.env.VITE_BLIK}</Txt>
     </Wrapper>
   );
 }
 
-const Title = styled.h1`
+const Title = styled.h2`
   font-size: 3rem;
   font-weight: 700;
 

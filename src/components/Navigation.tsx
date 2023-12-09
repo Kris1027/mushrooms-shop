@@ -5,6 +5,7 @@ import { IconType } from 'react-icons';
 import { GiMushroomGills } from 'react-icons/gi';
 import { HiBars3, HiInformationCircle, HiXMark } from 'react-icons/hi2';
 import { CiMail } from 'react-icons/ci';
+import { FaQuestionCircle } from 'react-icons/fa';
 import { styled } from 'styled-components';
 
 interface NavLinkItemsProps {
@@ -62,6 +63,11 @@ export default function Navigation() {
       to: '/contact',
       Icon: CiMail,
       label: 'Kontakt',
+    },
+    {
+      to: '/faq',
+      Icon: FaQuestionCircle,
+      label: 'FAQ',
     },
   ];
 
