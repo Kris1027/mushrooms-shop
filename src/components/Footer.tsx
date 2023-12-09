@@ -61,7 +61,7 @@ const Socials = styled.section`
 
   a {
     text-decoration: none;
-    color: ${(props) => props.theme.color};
+    color: ${(props) => props.theme.secondary};
   }
 
   @media (max-width: 768px) {

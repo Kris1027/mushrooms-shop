@@ -3,9 +3,10 @@ import { useState, type FunctionComponent, useEffect } from 'react';
 
 import { IconType } from 'react-icons';
 import { GiMushroomGills } from 'react-icons/gi';
-import { HiBars3, HiInformationCircle, HiXMark } from 'react-icons/hi2';
-import { CiMail } from 'react-icons/ci';
-import { FaQuestionCircle } from 'react-icons/fa';
+import { HiBars3, HiXMark } from 'react-icons/hi2';
+import { IoIosMail } from 'react-icons/io';
+import { FaInfoCircle } from 'react-icons/fa';
+import { FaFileCircleQuestion } from 'react-icons/fa6';
 import { styled } from 'styled-components';
 
 interface NavLinkItemsProps {
@@ -56,17 +57,17 @@ export default function Navigation() {
     },
     {
       to: '/info',
-      Icon: HiInformationCircle,
+      Icon: FaInfoCircle,
       label: 'Info',
     },
     {
       to: '/contact',
-      Icon: CiMail,
+      Icon: IoIosMail,
       label: 'Kontakt',
     },
     {
       to: '/faq',
-      Icon: FaQuestionCircle,
+      Icon: FaFileCircleQuestion,
       label: 'FAQ',
     },
   ];

@@ -3,10 +3,10 @@ import { type FunctionComponent } from 'react';
 
 import { IconType } from 'react-icons';
 import { GiMushroomGills } from 'react-icons/gi';
-import { HiInformationCircle } from 'react-icons/hi2';
 import { styled } from 'styled-components';
-import { CiMail } from 'react-icons/ci';
-import { FaQuestionCircle } from 'react-icons/fa';
+import { FaInfoCircle } from 'react-icons/fa';
+import { IoIosMail } from 'react-icons/io';
+import { FaFileCircleQuestion } from 'react-icons/fa6';
 
 interface NavLinkItemsProps {
   to: string;
@@ -29,21 +29,21 @@ const navLinks: NavLinkItemsProps[] = [
   {
     to: '/products',
     Icon: GiMushroomGills,
-    label: 'Grzyby',
+    label: 'Produkty',
   },
   {
     to: '/info',
-    Icon: HiInformationCircle,
+    Icon: FaInfoCircle,
     label: 'Info',
   },
   {
     to: '/contact',
-    Icon: CiMail,
+    Icon: IoIosMail,
     label: 'Kontakt',
   },
   {
     to: '/faq',
-    Icon: FaQuestionCircle,
+    Icon: FaFileCircleQuestion,
     label: 'FAQ',
   },
 ];
