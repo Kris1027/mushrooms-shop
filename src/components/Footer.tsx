@@ -12,9 +12,14 @@ export default function Footer() {
     <Wrapper>
       <Socials>
         <div>
-          <Icon>
-            <AiFillFacebook />
-          </Icon>
+          <a
+            href='https://www.facebook.com/groups/780484819690637'
+            target='blank'
+          >
+            <Icon>
+              <AiFillFacebook />
+            </Icon>
+          </a>
           <Icon>
             <AiFillLinkedin />
           </Icon>
@@ -53,6 +58,11 @@ const Wrapper = styled.footer`
 const Socials = styled.section`
   display: flex;
   gap: 1rem;
+
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme.color};
+  }
 
   @media (max-width: 768px) {
     gap: 0;
