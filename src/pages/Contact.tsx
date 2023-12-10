@@ -6,7 +6,7 @@ export default function Contact() {
     <Wrapper>
       <Title>Masz jakieś pytania?</Title>
       <Txt>Skontaktuj sie z nami poprzez e-mail</Txt>
-      <Email>{import.meta.env.VITE_EMAIL_ADRESS}</Email>
+      <Email>{import.meta.env.VITE_CONTACT_EMAIL_ADRESS}</Email>
       <Title>Bank</Title>
       <Txt>{import.meta.env.VITE_NAME}</Txt>
       <Txt>nr konta: {import.meta.env.VITE_BANK_ACCOUNT}</Txt>

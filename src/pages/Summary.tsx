@@ -48,7 +48,7 @@ export default function Summary() {
     );
 
     const mailTo = `mailto:${
-      import.meta.env.VITE_EMAIL_ADRESS
+      import.meta.env.VITE_ORDERS_EMAIL_ADRESS
     }?subject=${subject}&body=${body}`;
 
     window.location.href = mailTo;
