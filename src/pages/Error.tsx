@@ -24,12 +24,12 @@ export default function Error() {
 }
 
 const ErrorWrapper = styled.main`
+  align-items: center;
+  color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100vmin;
-  color: white;
+  justify-content: center;
 `;
 
 const Emoji = styled.div`

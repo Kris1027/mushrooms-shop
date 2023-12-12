@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-
 import { getProducts } from '../services/apiProducts';
+
+import styled from 'styled-components';
 
 import Wrapper from '../components/Wrapper';
 import Spinner from '../components/Spinner';
-import styled from 'styled-components';
 
 export default function Info() {
   const {
@@ -45,9 +45,9 @@ const InfoContainer = styled.section`
 `;
 
 const Title = styled.h1`
-  padding-bottom: 1rem;
-  font-size: 2rem;
   color: ${(props) => props.theme.third};
+  font-size: 2rem;
+  padding-bottom: 1rem;
 `;
 
 const Text = styled.p`

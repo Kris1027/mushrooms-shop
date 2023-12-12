@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-
 import { getProducts } from '../services/apiProducts';
+
+import styled from 'styled-components';
 
 import Wrapper from '../components/Wrapper';
 import Product from '../components/Product';
 import Spinner from '../components/Spinner';
-import styled from 'styled-components';
 
 export default function Products() {
   const {
@@ -32,7 +32,7 @@ export default function Products() {
 
 const ProductsContainer = styled.section`
   display: flex;
-  gap: 2rem;
   flex-wrap: wrap;
+  gap: 2rem;
   justify-content: center;
 `;

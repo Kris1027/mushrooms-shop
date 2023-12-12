@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import Wrapper from '../components/Wrapper';
 
 export default function Contact() {
@@ -25,8 +26,8 @@ const Title = styled.h2`
 `;
 
 const Txt = styled.p`
-  font-size: 2rem;
   color: ${(props) => props.theme.primary};
+  font-size: 2rem;
 
   @media (max-width: 768px) {
     font-size: 0.5rem;
@@ -34,8 +35,8 @@ const Txt = styled.p`
 `;
 
 const Email = styled.p`
-  font-size: 1.8rem;
   color: ${(props) => props.theme.third};
+  font-size: 1.8rem;
 
   @media (max-width: 768px) {
     font-size: 0.5rem;

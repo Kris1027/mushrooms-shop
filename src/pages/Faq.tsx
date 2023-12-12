@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import Wrapper from '../components/Wrapper';
 
 export default function Faq() {
@@ -45,8 +46,8 @@ export default function Faq() {
 
 const Container = styled.section`
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const Title = styled.h1`
@@ -59,9 +60,9 @@ const Title = styled.h1`
 `;
 
 const Info = styled.h2`
+  color: ${(props) => props.theme.third};
   font-size: 2rem;
   font-weight: 700;
-  color: ${(props) => props.theme.third};
 
   @media (max-width: 768px) {
     font-size: 0.7rem;
@@ -69,9 +70,9 @@ const Info = styled.h2`
 `;
 
 const Step = styled.li`
+  color: ${(props) => props.theme.primary};
   font-size: 2rem;
   padding-bottom: 0.5rem;
-  color: ${(props) => props.theme.primary};
 
   @media (max-width: 768px) {
     font-size: 0.5rem;
@@ -79,9 +80,9 @@ const Step = styled.li`
 `;
 
 const Li = styled.li`
+  color: ${(props) => props.theme.color};
   font-size: 1.4rem;
   padding-bottom: 1rem;
-  color: ${(props) => props.theme.color};
 
   @media (max-width: 768px) {
     font-size: 0.5rem;

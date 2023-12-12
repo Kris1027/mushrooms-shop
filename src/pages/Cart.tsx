@@ -1,5 +1,4 @@
 import { Link, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 
 import {
   type CartItem,
@@ -8,6 +7,8 @@ import {
   resetCart,
 } from '../store/cartSlice';
 import { useCartDispatch, useCartSelector } from '../store/hooks';
+
+import styled from 'styled-components';
 
 import Wrapper from '../components/Wrapper';
 import Button from '../components/Button';
@@ -83,9 +84,9 @@ function Cart() {
 export default Cart;
 
 const EmptyBasket = styled.h1`
-  text-align: center;
-  font-size: 2rem;
   color: ${(props) => props.theme.third};
+  font-size: 2rem;
+  text-align: center;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -109,10 +110,10 @@ const ItemsWrapper = styled.div`
 `;
 
 const ItemsList = styled.ul`
+  align-content: center;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  align-content: center;
 
   @media (max-width: 768px) {
     gap: 1rem;
@@ -120,10 +121,10 @@ const ItemsList = styled.ul`
 `;
 
 const Item = styled.li`
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
   gap: 1rem;
+  justify-content: center;
 
   @media (max-width: 768px) {
     gap: 0.4rem;
@@ -156,10 +157,10 @@ const Txt = styled.p`
 `;
 
 const Quantity = styled.span`
+  color: ${(props) => props.theme.secondary};
   font-size: 2rem;
   font-weight: 700;
   padding: 1rem;
-  color: ${(props) => props.theme.secondary};
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
@@ -186,14 +187,14 @@ const ButtonsWrapper = styled.div`
 `;
 
 const StyledSummary = styled(Link)`
-  font-size: 1.5rem;
-  padding: 0.6rem 2rem;
   background-color: ${(props) => props.theme.third};
-  color: ${(props) => props.theme.primary};
-  border-radius: 16px;
   border: none;
+  border-radius: 16px;
+  color: ${(props) => props.theme.primary};
   cursor: pointer;
+  font-size: 1.5rem;
   font-weight: 700;
+  padding: 0.6rem 2rem;
   text-decoration: none;
 
   &:hover {
@@ -206,8 +207,8 @@ const StyledSummary = styled(Link)`
   }
 
   &:focus {
-    outline: none;
     color: ${(props) => props.theme.secondary};
+    outline: none;
   }
 
   @media (max-width: 768px) {

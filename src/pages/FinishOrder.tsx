@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import Wrapper from '../components/Wrapper';
 
 export default function FinishOrder() {
@@ -23,8 +24,8 @@ const Title = styled.h1`
 `;
 
 const Txt = styled.p`
-  font-size: 2rem;
   color: ${(props) => props.theme.primary};
+  font-size: 2rem;
 
   @media (max-width: 768px) {
     font-size: 0.5rem;

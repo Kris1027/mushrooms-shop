@@ -1,9 +1,12 @@
+import { useNavigate } from 'react-router-dom';
+
 import { resetCart } from '../store/cartSlice';
 import { useCartDispatch, useCartSelector } from '../store/hooks';
+
+import styled from 'styled-components';
+
 import Button from '../components/Button';
 import Wrapper from '../components/Wrapper';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 
 export default function Summary() {
   const navi = useNavigate();
@@ -81,9 +84,9 @@ export default function Summary() {
 }
 
 const Container = styled.section`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
 `;
@@ -98,8 +101,8 @@ const Title = styled.h1`
 `;
 
 const TxtProd = styled.p`
-  font-size: 2rem;
   color: ${(props) => props.theme.primary};
+  font-size: 2rem;
 
   @media (max-width: 768px) {
     font-size: 0.5rem;
@@ -108,9 +111,9 @@ const TxtProd = styled.p`
 
 const TxtPrice = styled.p`
   display: flex;
-  gap: 1rem;
   font-size: 2.5rem;
   font-weight: 700;
+  gap: 1rem;
 `;
 
 const Price = styled.span`
