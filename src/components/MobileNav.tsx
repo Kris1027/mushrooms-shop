@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import { type FunctionComponent } from 'react';
 
+import { styled } from 'styled-components';
+
 import { IconType } from 'react-icons';
 import { GiMushroomGills } from 'react-icons/gi';
-import { styled } from 'styled-components';
 import { FaInfoCircle } from 'react-icons/fa';
 import { IoIosMail } from 'react-icons/io';
 import { FaFileCircleQuestion } from 'react-icons/fa6';
@@ -58,25 +59,25 @@ export default function MobileNav() {
 }
 
 const Nav = styled.nav`
-  display: flex;
-  gap: 2rem;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   height: 80vh;
+  justify-content: space-around;
 
   background: rgba(35, 35, 35, 0.7);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(5px);
 `;
 
 const NavLinks = styled(NavLink)`
+  color: ${(props) => props.theme.secondary};
   display: flex;
+  font-size: 2rem;
   justify-content: space-between;
   text-decoration: none;
-  color: ${(props) => props.theme.secondary};
-  font-size: 2rem;
 
   &.active {
     color: ${(props) => props.theme.third};

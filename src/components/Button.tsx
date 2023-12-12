@@ -15,14 +15,14 @@ export default function Button({ children, onClick, type }: ButtonProps) {
 }
 
 const StyledButton = styled.button`
-  font-size: 1.5rem;
-  padding: 0.6rem 2rem;
   background-color: ${(props) => props.theme.third};
-  color: ${(props) => props.theme.primary};
-  border-radius: 16px;
   border: none;
+  border-radius: 16px;
+  color: ${(props) => props.theme.primary};
   cursor: pointer;
+  font-size: 1.5rem;
   font-weight: 700;
+  padding: 0.6rem 2rem;
 
   &:hover {
     background-color: ${(props) => props.theme.primary};

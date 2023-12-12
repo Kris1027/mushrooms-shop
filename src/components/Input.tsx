@@ -30,11 +30,11 @@ export default function Input({
 }
 
 const StyledInput = styled.input`
-  font-size: 1.5rem;
+  background-color: ${(props) => props.theme.primary};
   border-radius: 10px;
   border: none;
+  font-size: 1.5rem;
   padding: 0.6rem 2rem;
-  background-color: ${(props) => props.theme.primary};
 
   &:focus {
     outline: none;

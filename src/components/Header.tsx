@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+
 import { useCartSelector } from '../store/hooks';
 
 import styled from 'styled-components';
@@ -34,31 +35,31 @@ export default function Header({ switchTheme, theme, dark }: HeaderProps) {
 }
 
 const HeaderWrapper = styled.header`
-  position: relative;
-  display: flex;
-  justify-content: space-around;
   align-items: center;
-  height: 70px;
+  display: flex;
   font-size: 1.5rem;
+  height: 70px;
+  justify-content: space-around;
+  position: relative;
   text-align: center;
 
   background: rgba(255, 255, 255, 0);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(5px);
 `;
 
 const Basket = styled(Link)`
+  color: ${(props) => props.theme.secondary};
   display: flex;
   gap: 0.2rem;
-  width: 3.5rem;
-  color: ${(props) => props.theme.secondary};
   text-decoration: none;
+  width: 3.5rem;
 `;
 
 const Quantity = styled.span`
-  font-size: 1.3rem;
   color: ${(props) => props.theme.third};
+  font-size: 1.3rem;
   width: 30px;
 
   @media (max-width: 768px) {

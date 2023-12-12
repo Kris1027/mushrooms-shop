@@ -43,11 +43,11 @@ export default function Footer() {
 }
 
 const Wrapper = styled.footer`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.7rem;
   flex-wrap: wrap;
+  gap: 0.7rem;
   margin-top: 2rem;
 
   @media (max-width: 768px) {
@@ -60,20 +60,20 @@ const Socials = styled.section`
   gap: 1rem;
 
   a {
-    text-decoration: none;
     color: ${(props) => props.theme.secondary};
+    text-decoration: none;
   }
 
   @media (max-width: 768px) {
-    gap: 0;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+    gap: 0;
   }
 `;
 
 const Icon = styled.span`
-  font-size: 2rem;
   cursor: pointer;
+  font-size: 2rem;
 
   &:hover {
     color: ${(props) => props.theme.third};
@@ -88,8 +88,8 @@ const Copyrights = styled.section`
   font-size: 0.7rem;
 
   a {
-    text-decoration: none;
     color: ${(props) => props.theme.third};
+    text-decoration: none;
   }
 
   @media (max-width: 768px) {

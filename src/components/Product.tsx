@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../store/cartSlice';
 
 import styled from 'styled-components';
+
 import Button from './Button';
 
 export type DataProps = {
@@ -56,28 +57,28 @@ export default function Product({ prod }: ProductProps) {
 }
 
 const Wrapper = styled.div`
+  align-items: center;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  align-items: center;
-  border-radius: 16px;
+  height: 500px;
   overflow: hidden;
   width: 350px;
-  height: 500px;
 
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(5px);
 `;
 
 const Image = styled.div`
-  width: 100%;
-  height: 100%;
   background-position: center;
   background-size: cover;
-  transition: 0.5s linear;
   cursor: pointer;
+  height: 100%;
+  transition: 0.5s linear;
+  width: 100%;
 
   &:active {
     transform: scale(200%);
@@ -85,11 +86,11 @@ const Image = styled.div`
 `;
 
 const Title = styled.h1`
+  color: ${(props) => props.theme.third};
   font-size: 1.5rem;
   font-weight: 700;
   padding: 0 2rem;
   text-align: center;
-  color: ${(props) => props.theme.third};
 `;
 
 const Form = styled.span`
@@ -99,18 +100,18 @@ const Form = styled.span`
 
 const PriceWrapper = styled.div`
   display: flex;
-  justify-content: center;
   gap: 0.5rem;
+  justify-content: center;
 `;
 
 const Price = styled.span`
+  color: ${(props) => props.theme.secondary};
   font-size: 1rem;
   font-weight: 700;
-  color: ${(props) => props.theme.secondary};
 `;
 
 const Discount = styled.span`
-  font-size: 0.7rem;
   color: ${(props) => props.theme.third};
+  font-size: 0.7rem;
   text-decoration: line-through;
 `;

@@ -14,9 +14,9 @@ const LogoWrapper = styled.h1`
   min-width: 295px;
 
   a {
-    font-size: 2rem;
-    font-family: 'Berkshire Swash', serif;
     color: ${(props) => props.theme.secondary};
+    font-family: 'Berkshire Swash', serif;
+    font-size: 2rem;
     text-decoration: none;
 
     @media (max-width: 768px) {

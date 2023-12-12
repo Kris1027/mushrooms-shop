@@ -1,13 +1,14 @@
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useState, type FunctionComponent, useEffect } from 'react';
 
+import { styled } from 'styled-components';
+
 import { IconType } from 'react-icons';
 import { GiMushroomGills } from 'react-icons/gi';
 import { HiBars3, HiXMark } from 'react-icons/hi2';
 import { IoIosMail } from 'react-icons/io';
 import { FaInfoCircle } from 'react-icons/fa';
 import { FaFileCircleQuestion } from 'react-icons/fa6';
-import { styled } from 'styled-components';
 
 interface NavLinkItemsProps {
   to: string;
@@ -97,9 +98,9 @@ export default function Navigation() {
 }
 
 const Nav = styled.nav`
+  align-items: center;
   display: flex;
   gap: 1rem;
-  align-items: center;
 
   a {
     color: ${(props) => props.theme.secondary};
@@ -111,15 +112,15 @@ const Nav = styled.nav`
 `;
 
 const Burger = styled(Link)`
-  font-size: 2rem;
   cursor: pointer;
+  font-size: 2rem;
 `;
 
 const NavLinks = styled(NavLink)`
+  color: ${(props) => props.theme.secondary};
   display: flex;
   justify-content: space-between;
   text-decoration: none;
-  color: ${(props) => props.theme.secondary};
 
   &.active {
     color: ${(props) => props.theme.third};
