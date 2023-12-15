@@ -1,29 +1,37 @@
-import { useQuery } from '@tanstack/react-query';
-import { getProducts } from '../services/apiProducts';
+import { type ProductProps, getProducts } from '../services/apiProducts';
 
 import styled from 'styled-components';
 
 import Wrapper from '../components/Wrapper';
 import Product from '../components/Product';
 import Spinner from '../components/Spinner';
+import { useEffect, useState } from 'react';
 
 export default function Products() {
-  const {
-    isLoading,
-    data: products,
-    error,
-  } = useQuery({
-    queryKey: ['product'],
-    queryFn: getProducts,
-  });
+  const [products, setProducts] = useState<ProductProps[] | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    getProducts()
+      .then((data) => {
+        setProducts(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setIsLoading(false);
+      });
+  }, []);
 
   if (isLoading) return <Spinner />;
-  if (error) return <p>{error.message}</p>;
+  if (error) return <p>{error}</p>;
+
   return (
     <Wrapper>
       <ProductsContainer>
         {products?.map((prod) => (
-          <Product prod={prod} key={prod.id} />
+          <Product {...prod} key={prod.id} />
         ))}
       </ProductsContainer>
     </Wrapper>

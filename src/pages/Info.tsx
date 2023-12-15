@@ -1,5 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
-import { getProducts } from '../services/apiProducts';
+import { useEffect, useState } from 'react';
+import { type ProductProps, getProducts } from '../services/apiProducts';
 
 import styled from 'styled-components';
 
@@ -7,19 +7,26 @@ import Wrapper from '../components/Wrapper';
 import Spinner from '../components/Spinner';
 
 export default function Info() {
-  const {
-    isLoading,
-    data: products,
-    error,
-  } = useQuery({
-    queryKey: ['product'],
-    queryFn: getProducts,
-  });
+  const [products, setProducts] = useState<ProductProps[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    getProducts()
+      .then((data) => {
+        setProducts(data);
+        setIsLoading(false);
+      })
+      .catch((error: Error) => {
+        setError(error.message);
+        setIsLoading(false);
+      });
+  }, []);
 
   if (isLoading) return <Spinner />;
-  if (error) return <p>{error.message}</p>;
+  if (error) return <p>{error}</p>;
 
-  const filteredProducts = products?.filter(
+  const filteredProducts: ProductProps[] = products?.filter(
     (prod) => prod.description !== null
   );
 

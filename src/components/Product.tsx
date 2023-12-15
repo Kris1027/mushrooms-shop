@@ -4,45 +4,38 @@ import { addToCart } from '../store/cartSlice';
 import styled from 'styled-components';
 
 import Button from './Button';
+import { ProductProps } from '../services/apiProducts';
 
-export type DataProps = {
-  id: number;
-  name: string;
-  quantity: number;
-  image: File;
-  regularPrice: number;
-  discount: number;
-  description?: string;
-  form: string;
-};
-
-type ProductProps = {
-  prod: DataProps;
-};
-
-export default function Product({ prod }: ProductProps) {
+export default function Product({
+  id,
+  name,
+  regularPrice,
+  discount,
+  form,
+  image,
+}: ProductProps) {
   const dispatch = useDispatch();
 
   function handleAddToCart() {
     dispatch(
       addToCart({
-        id: prod.id,
-        name: prod.name,
-        regularPrice: prod.regularPrice,
-        discount: prod.discount,
-        form: prod.form,
+        id,
+        name,
+        regularPrice,
+        discount,
+        form,
       })
     );
   }
 
-  const beforeDiscountPrice = prod.regularPrice.toFixed(2);
-  const totalPrice = (prod.regularPrice - prod.discount).toFixed(2);
+  const beforeDiscountPrice = regularPrice.toFixed(2);
+  const totalPrice = (regularPrice - discount).toFixed(2);
 
   return (
-    <Wrapper key={prod.id}>
-      <Image style={{ backgroundImage: `url(${prod.image})` }} />
-      <Title>{prod.name}</Title>
-      <Form>({prod.form})</Form>
+    <Wrapper key={id}>
+      <Image style={{ backgroundImage: `url(${image})` }} />
+      <Title>{name}</Title>
+      <Form>({form})</Form>
       <PriceWrapper>
         <Price>{totalPrice} zł</Price>
         <Discount>
