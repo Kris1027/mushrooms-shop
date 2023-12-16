@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import { resetCart } from '../store/cartSlice';
+import { type CartItem, resetCart } from '../store/cartSlice';
 import { useCartDispatch, useCartSelector } from '../store/hooks';
 
 import styled from 'styled-components';
@@ -11,14 +11,17 @@ import Wrapper from '../components/Wrapper';
 export default function Summary() {
   const navi = useNavigate();
   const dispatch = useCartDispatch();
-  const cartItems = useCartSelector((state) => state.cart.items);
+  const cartItems: CartItem[] = useCartSelector((state) => state.cart.items);
 
   const orderedProducts = cartItems
-    .map((item) => `${item.name}, ${item.form} - ${item.quantity} szt`)
+    .map(
+      (item: CartItem) => `${item.name}, ${item.form} - ${item.quantity} szt`
+    )
     .join('\n');
 
   const totalPrice = cartItems.reduce(
-    (val, item) => val + (item.regularPrice - item.discount) * item.quantity,
+    (val: number, item: CartItem) =>
+      val + (item.regularPrice - item.discount) * item.quantity,
     0
   );
 
@@ -29,7 +32,7 @@ export default function Summary() {
   const formattedFinalPrice = finalPrice.toFixed(2);
   const orderNr = Math.floor(Math.random() * 10000000);
 
-  const handleBuyMail = () => {
+  const handleBuyMail = (): void => {
     const subject = encodeURIComponent(`Zamównienie nr: ${orderNr}`);
     const body = encodeURIComponent(
       `${orderedProducts}

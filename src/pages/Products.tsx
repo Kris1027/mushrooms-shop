@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 export default function Products() {
   const [products, setProducts] = useState<ProductProps[] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     getProducts()
@@ -18,7 +18,7 @@ export default function Products() {
         setProducts(data);
         setIsLoading(false);
       })
-      .catch((error) => {
+      .catch((error: Error) => {
         setError(error.message);
         setIsLoading(false);
       });
@@ -30,7 +30,7 @@ export default function Products() {
   return (
     <Wrapper>
       <ProductsContainer>
-        {products?.map((prod) => (
+        {products?.map((prod: ProductProps) => (
           <Product {...prod} key={prod.id} />
         ))}
       </ProductsContainer>

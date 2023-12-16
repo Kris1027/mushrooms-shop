@@ -14,12 +14,13 @@ import Wrapper from '../components/Wrapper';
 import Button from '../components/Button';
 
 function Cart() {
-  const cartItems = useCartSelector((state) => state.cart.items);
+  const cartItems: CartItem[] = useCartSelector((state) => state.cart.items);
   const dispatch = useCartDispatch();
   const navi = useNavigate();
 
   const totalPrice = cartItems.reduce(
-    (val, item) => val + (item.regularPrice - item.discount) * item.quantity,
+    (val: number, item: CartItem) =>
+      val + (item.regularPrice - item.discount) * item.quantity,
     0
   );
 

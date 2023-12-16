@@ -4,17 +4,17 @@ import { Provider } from 'react-redux';
 
 import { store } from './store/store';
 
-import { ThemeProvider } from 'styled-components';
+import { type DefaultTheme, ThemeProvider } from 'styled-components';
 import GlobalStyle, { darkTheme, lightTheme } from './styles/GlobalStyle';
 
 import Footer from './components/Footer';
 import Header from './components/Header';
 
 export default function App() {
-  const [theme, setTheme] = useState(darkTheme);
+  const [theme, setTheme] = useState<DefaultTheme>(darkTheme);
 
   function handleTheme() {
-    setTheme((currentTheme) =>
+    setTheme((currentTheme: DefaultTheme) =>
       currentTheme === darkTheme ? lightTheme : darkTheme
     );
   }

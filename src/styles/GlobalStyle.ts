@@ -1,11 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
 export interface themeProps {
-  primary: string;
-  secondary: string;
-  color: string;
-  third: string;
-  appBG: string;
+  primary?: string;
+  secondary?: string;
+  color?: string;
+  third?: string;
+  appBG?: string;
 }
 
 export const darkTheme: themeProps = {
