@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { useCartSelector } from '../store/hooks';
+import { type CartItem } from '../store/cartSlice';
 
 import styled from 'styled-components';
 import { HiMoon, HiShoppingCart, HiSun } from 'react-icons/hi2';
@@ -9,6 +10,7 @@ import { type themeProps } from '../styles/GlobalStyle';
 
 import Logo from './Logo';
 import Navigation from './Navigation';
+import { RootState } from '../store/store';
 
 interface HeaderProps {
   switchTheme: () => void;
@@ -17,8 +19,11 @@ interface HeaderProps {
 }
 
 export default function Header({ switchTheme, theme, dark }: HeaderProps) {
-  const cartQuantity = useCartSelector((state) =>
-    state.cart.items.reduce((val, item) => val + item.quantity, 0)
+  const cartQuantity = useCartSelector((state: RootState) =>
+    state.cart.items.reduce(
+      (val: number, item: CartItem) => val + item.quantity,
+      0
+    )
   );
 
   return (

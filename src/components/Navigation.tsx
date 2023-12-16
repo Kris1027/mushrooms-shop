@@ -1,4 +1,10 @@
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import {
+  Link,
+  NavLink,
+  useLocation,
+  useNavigate,
+  type Location,
+} from 'react-router-dom';
 import { useState, type FunctionComponent, useEffect } from 'react';
 
 import { styled } from 'styled-components';
@@ -28,7 +34,7 @@ const NavLinkItems: FunctionComponent<NavLinkItemsProps> = ({
 );
 
 export default function Navigation() {
-  const location = useLocation();
+  const location: Location = useLocation();
   const navigation = useNavigate();
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
